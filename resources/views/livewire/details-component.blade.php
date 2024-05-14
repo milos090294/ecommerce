@@ -4,13 +4,13 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="{{route ('home.index')}}" rel="nofollow">Naslovna</a>
-                    <span></span> Detaljnije o artiklu
+                    <a href="{{route ('home.index')}}" rel="nofollow">Home</a>
+                    <span></span> More details about the article
                    
                 </div>
             </div>
         </div>
-        <marquee behavior="" direction="" class="mt-2 text-white bg-success" style="font-size: 16px; font-weight:bold;">Brza Dostava & Sigurna Kupovina</marquee>
+        <marquee behavior="" direction="" class="mt-2 text-white bg-success" style="font-size: 16px; font-weight:bold;">Fast Delivery & Secure Shopping</marquee>
         <section class="mt-50 mb-50">
             <div class="container">
                 <div class="row">
@@ -159,7 +159,7 @@
                                         <ul class="product-meta font-xs color-grey mt-50">
                                             {{-- <li class="mb-5">SKU: <a href="#">FWM15VKT</a></li>
                                             <li class="mb-5">Tags: <a href="#" rel="tag">Cloth</a>, <a href="#" rel="tag">Women</a>, <a href="#" rel="tag">Dress</a> </li> --}}
-                                            <li>Dostupno:<span class="in-stock text-success ml-5">{{$product->quantity}} komada</span></li>
+                                            <li>Available:<span class="in-stock text-success ml-5">{{$product->quantity}} pieces</span></li>
                                         </ul>
                                     </div>
                                     <!-- Detail Info -->
@@ -168,10 +168,10 @@
                             <div class="tab-style3">
                                 <ul class="nav nav-tabs text-uppercase">
                                     <li class="nav-item">
-                                        <a class="nav-link active" id="Description-tab" data-bs-toggle="tab" href="#Description">Opis</a>
+                                        <a class="nav-link active" id="Description-tab" data-bs-toggle="tab" href="#Description">Description</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="Additional-info-tab" data-bs-toggle="tab" href="#Additional-info">Dodatne informacije</a>
+                                        <a class="nav-link" id="Additional-info-tab" data-bs-toggle="tab" href="#Additional-info">Additional information</a>
                                     </li>
                                     {{-- <li class="nav-item">
                                         <a class="nav-link" id="Reviews-tab" data-bs-toggle="tab" href="#Reviews">Reviews (3)</a>
@@ -452,7 +452,7 @@
                             </div>
                             <div class="row mt-60">
                                 <div class="col-12">
-                                    <h3 class="section-title style-1 mb-30">Slični artikli</h3>
+                                    <h3 class="section-title style-1 mb-30">Similar articles</h3>
                                 </div>
                                 <div class="col-12">
                                     <div class="row related-products">
@@ -557,7 +557,7 @@
                         <!-- Product sidebar Widget -->
                         <div class="sidebar-widget product-sidebar  mb-30 p-30 bg-grey border-radius-10">
                             <div class="widget-header position-relative mb-20 pb-10">
-                                <h5 class="widget-title mb-10">Najnoviji Artikli</h5>
+                                <h5 class="widget-title mb-10">Latest Items</h5>
                                 <div class="bt-1 border-color-1"></div>
                             </div>
                           

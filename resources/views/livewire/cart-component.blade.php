@@ -3,9 +3,9 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="{{route ('home.index')}}" rel="nofollow">Naslovna</a>
-                    <span></span> <a href="{{route ('shop') }}">Shop </a>
-                    <span></span> Tvoja Korpa
+                    <a href="{{ route('home.index') }}" rel="nofollow">Home</a>
+                    <span></span> <a href="{{ route('shop') }}">Shop </a>
+                    <span></span> Cart
                 </div>
             </div>
         </div>
@@ -14,80 +14,107 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="table-responsive">
-                            
-                            @if(Session::has('success_message'))
 
-                            <div class="alert alert-success">
-                                <strong>{{Session::get('success_message')}}</strong>
-                            </div>
+                            @if (Session::has('success_message'))
+                                <div class="alert alert-success">
+                                    <strong>{{ Session::get('success_message') }}</strong>
+                                </div>
                             @endif
 
-                            @if(Cart::instance('cart_'.session()->getId())->count() > 0)
-                            <table class="table shopping-summery text-center clean">
-                                <thead>
-                                    <tr class="main-heading">
-                                        <th scope="col">Slika</th>
-                                        <th scope="col">Naziv</th>
-                                        <th scope="col">Cijena</th>
-                                        <th scope="col">Količina</th>
-                                        <th scope="col">Veličina</th>
-                                        <th scope="col">Ukupno</th>
-                                        <th scope="col">Izbriši</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                            @if (Cart::instance('cart_' . session()->getId())->count() > 0)
+                                <table class="table shopping-summery text-center clean">
+                                    <thead>
+                                        <tr class="main-heading">
+                                            <th scope="col">Picture</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Quantity</th>
+                                            <th scope="col">Size</th>
+                                            <th scope="col">Total</th>
+                                            <th scope="col">Remove</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-                                    @foreach (Cart::instance('cart_'.session()->getId())->content() as $item)
-                                    <tr>
-                                        <td class="image product-thumbnail"><img src="{{ asset('assets/imgs/products')}}/{{$item->model->image}}" alt="#"></td>
-                                        <td class="product-des product-name">
-                                            <h5 class="product-name"><a href="{{ route ('product.details', ['slug' => $item->model->slug])}}">{{$item->model->name}}</a></h5>
-                                            {{-- <p class="font-xs">Maboriosam in a tonto nesciung eget<br> distingy magndapibus.
+                                        @foreach (Cart::instance('cart_' . session()->getId())->content() as $item)
+                                            <tr>
+                                                <td class="image product-thumbnail"><img
+                                                        src="{{ asset('assets/imgs/products') }}/{{ $item->model->image }}"
+                                                        alt="#"></td>
+                                                <td class="product-des product-name">
+                                                    <h5 class="product-name"><a
+                                                            href="{{ route('product.details', ['slug' => $item->model->slug]) }}">{{ $item->model->name }}</a>
+                                                    </h5>
+                                                    {{-- <p class="font-xs">Maboriosam in a tonto nesciung eget<br> distingy magndapibus.
                                             </p> --}}
-                                        </td>
-                                        <td class="price" data-title="Cijena"><span>BAM {{$item->model->regular_price}}</span></td>
-                                        <td class="text-center" data-title="Količina">
-                                            <div class="detail-qty border radius  m-auto">
-                                                <a wire:click.prevent="decreaseQuantity('{{$item->rowId}}')" href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
-                                                <span class="qty-val">{{$item->qty}}</span>
-                                                <a wire:click.prevent="increaseQuantity('{{$item->rowId}}')" href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
-                                            </div>
-                                        </td>
-                                        <td class="text-right" data-title="Veličina">
-                                            <div class="">
-                                                 
-                                                <ul class="list-filter size-filter font-small">
-                                                    <li class="{{ $item->options->size === 'S' ? 'active' : '' }}">  <a wire:click="changeSize('{{$item->rowId}}', 'S')"  href="#">S</a></li>
-                                                    <li class="{{ $item->options->size === 'M' ? 'active' : '' }}"><a wire:click="changeSize('{{$item->rowId}}', 'M')"  href="#">M</a></li>
-                                                    <li class="{{ $item->options->size === 'L' ? 'active' : '' }}"><a wire:click="changeSize('{{$item->rowId}}', 'L')"  href="#">L</a></li>
-                                                    <li class="{{ $item->options->size === 'XL' ? 'active' : '' }}"><a  wire:click="changeSize('{{$item->rowId}}', 'XL')" href="#">XL</a></li>
-                                                    <li class="{{ $item->options->size === 'XXL' ? 'active' : '' }}"><a wire:click.defer="changeSize('{{$item->rowId}}', 'XXL')"  href="#">XXL</a></li>
-                                                </ul>
-                                            
-                                            </div>
-                                        </td>
-                                        <td class="text-right" data-title="Ukupno">
-                                            <span>BAM {{$item->subtotal}} </span>
-                                        </td>
-                                        <td wire:click.prevent="destroy('{{$item->rowId}}')"class="action" data-title="Izbriši"><a href="#" class="text-muted"><i class="fi-rs-trash"></i></a></td>
-                                    </tr>
-                                    @endforeach
+                                                </td>
+                                                <td class="price" data-title="Cijena"><span>EUR
+                                                        {{ $item->model->regular_price }}</span></td>
+                                                <td class="text-center" data-title="Količina">
+                                                    <div class="detail-qty border radius  m-auto">
+                                                        <a wire:click.prevent="decreaseQuantity('{{ $item->rowId }}')"
+                                                            href="#" class="qty-down"><i
+                                                                class="fi-rs-angle-small-down"></i></a>
+                                                        <span class="qty-val">{{ $item->qty }}</span>
+                                                        <a wire:click.prevent="increaseQuantity('{{ $item->rowId }}')"
+                                                            href="#" class="qty-up"><i
+                                                                class="fi-rs-angle-small-up"></i></a>
+                                                    </div>
+                                                </td>
+                                                <td class="text-right" data-title="Veličina">
+                                                    <div class="">
 
-                                    <tr>
-                                        <td colspan="6" class="text-end">
-                                            <a href="" class="text-muted" wire:click.prevent="clearCart"> <i class="fi-rs-cross-small"></i>Obriši sve iz korpe</a>
-                                        </td>
-                                    </tr>
-                                   
-                                </tbody>
-                            </table>
-                            @else 
-                            <p>No Item in Cart</p>
+                                                        <ul class="list-filter size-filter font-small">
+                                                            <li
+                                                                class="{{ $item->options->size === 'S' ? 'active' : '' }}">
+                                                                <a wire:click="changeSize('{{ $item->rowId }}', 'S')"
+                                                                    href="#">S</a></li>
+                                                            <li
+                                                                class="{{ $item->options->size === 'M' ? 'active' : '' }}">
+                                                                <a wire:click="changeSize('{{ $item->rowId }}', 'M')"
+                                                                    href="#">M</a></li>
+                                                            <li
+                                                                class="{{ $item->options->size === 'L' ? 'active' : '' }}">
+                                                                <a wire:click="changeSize('{{ $item->rowId }}', 'L')"
+                                                                    href="#">L</a></li>
+                                                            <li
+                                                                class="{{ $item->options->size === 'XL' ? 'active' : '' }}">
+                                                                <a wire:click="changeSize('{{ $item->rowId }}', 'XL')"
+                                                                    href="#">XL</a></li>
+                                                            <li
+                                                                class="{{ $item->options->size === 'XXL' ? 'active' : '' }}">
+                                                                <a wire:click.defer="changeSize('{{ $item->rowId }}', 'XXL')"
+                                                                    href="#">XXL</a></li>
+                                                        </ul>
+
+                                                    </div>
+                                                </td>
+                                                <td class="text-right" data-title="Ukupno">
+                                                    <span>EUR {{ $item->subtotal }} </span>
+                                                </td>
+                                                <td wire:click.prevent="destroy('{{ $item->rowId }}')"class="action"
+                                                    data-title="Izbriši"><a href="#" class="text-muted"><i
+                                                            class="fi-rs-trash"></i></a></td>
+                                            </tr>
+                                        @endforeach
+
+                                        <tr>
+                                            <td colspan="6" class="text-end">
+                                                <a href="" class="text-muted" wire:click.prevent="clearCart"> <i
+                                                        class="fi-rs-cross-small"></i>Remove all from cart</a>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            @else
+                                <p>No Item in Cart</p>
                             @endif
                         </div>
                         <div class="cart-action text-end">
                             {{-- <a class="btn  mr-10 mb-sm-15"><i class="fi-rs-shuffle mr-10"></i>Update Cart</a> --}}
-                            <a href="{{route ('shop')}}" class="btn "><i class="fi-rs-shopping-bag mr-10"></i>Nastavi Kupovinu</a>
+                            <a href="{{ route('shop') }}" class="btn "><i
+                                    class="fi-rs-shopping-bag mr-10"></i>Continue shopping</a>
                         </div>
                         <div class="divider center_icon mt-50 mb-50"><i class="fi-rs-fingerprint"></i></div>
                         <div class="row mb-50">
@@ -389,34 +416,42 @@
                             <div class="col-lg-6 col-md-12">
                                 <div class="border p-md-4 p-30 border-radius cart-totals">
                                     <div class="heading_s1 mb-3">
-                                        <h4>Korpa Ukupno</h4>
+                                        <h4>Cart Total</h4>
 
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table">
                                             <tbody>
                                                 <tr>
-                                                    <td class="cart_total_label">Ukupno</td>
-                                                    
-                                                    <td class="cart_total_amount"> <i class="ti-gift mr-5"></i>BAM {{Cart::instance('cart_'.session()->getId())->subtotal()}}</td>
+                                                    <td class="cart_total_label">Total</td>
+
+                                                    <td class="cart_total_amount"> <i class="ti-gift mr-5"></i>EUR
+                                                        {{ Cart::instance('cart_' . session()->getId())->subtotal() }}
+                                                    </td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="cart_total_label">PDV</td>
-                                                    
-                                                    <td class="cart_total_amount"> <i class="ti-gift mr-5"></i>BAM {{Cart::instance('cart_'.session()->getId())->tax()}}</td>
+                                                    <td class="cart_total_label">TAX</td>
+
+                                                    <td class="cart_total_amount"> <i class="ti-gift mr-5"></i>EUR
+                                                        {{ Cart::instance('cart_' . session()->getId())->tax() }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="cart_total_label">Dostava</td>
-                                                    <td class="cart_total_amount"> <i class="ti-gift mr-5"></i>BAM 8</td>
+                                                    <td class="cart_total_label">Delivery</td>
+                                                    <td class="cart_total_amount"> <i class="ti-gift mr-5"></i>EUR 8
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="cart_total_label">Total</td>
-                                                    <td class="cart_total_amount"><strong><span class="font-xl fw-900 text-brand">BAM {{Cart::instance('cart_'.session()->getId())->total() + 8}}</span></strong></td>
+                                                    <td class="cart_total_amount"><strong><span
+                                                                class="font-xl fw-900 text-brand">EUR
+                                                                {{ Cart::instance('cart_' . session()->getId())->total() + 8 }}</span></strong>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
-                                    <a href="{{route ('shop.checkout')}}" class="btn "> <i class="fi-rs-box-alt mr-10"></i> Kreni na Plaćanje</a>
+                                    <a href="{{ route('shop.checkout') }}" class="btn "> <i
+                                            class="fi-rs-box-alt mr-10"></i> Checkout</a>
                                 </div>
                             </div>
                         </div>

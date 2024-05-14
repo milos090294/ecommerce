@@ -3,9 +3,9 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="{{route ('home.index')}}" rel="nofollow">Naslovna</a>
+                    <a href="{{route ('home.index')}}" rel="nofollow">Home</a>
                     <span></span> Shop
-                    <span></span> Plaćanje
+                    <span></span> Checkout
                 </div>
             </div>
         </div>
@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-lg-6 mb-sm-15">
                         <div class="toggle_info">
-                            <span><i class="fi-rs-user mr-10"></i><span class="text-muted">Imaš Nalog?</span> <a href="{{route ('login')}}">Klikni da se uloguješ!</a></span>
+                            <span><i class="fi-rs-user mr-10"></i><span class="text-muted">Have Account?</span> <a href="{{route ('login')}}">Login!</a></span>
                         </div>
                         {{-- <div class="panel-collapse collapse login_form" id="loginform">
                             <div class="panel-body">
@@ -44,17 +44,17 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="toggle_info">
-                            <span><i class="fi-rs-label mr-10"></i><span class="text-muted">Imaš kupon za popust?</span> <a href="#coupon" data-bs-toggle="collapse" class="collapsed" aria-expanded="false">Klikni ovdje da uneseš kod kupona!</a></span>
+                            <span><i class="fi-rs-label mr-10"></i><span class="text-muted">Got a discount coupon?</span> <a href="#coupon" data-bs-toggle="collapse" class="collapsed" aria-expanded="false">Click here to enter the coupon code!</a></span>
                         </div>
                         <div class="panel-collapse collapse coupon_form " id="coupon">
                             <div class="panel-body">
-                                <p class="mb-30 font-sm">Ako imate kupon kod, molimo vas da ga unesete ispod..</p>
+                                <p class="mb-30 font-sm">If you have a coupon code, please enter it below..</p>
                                 <form method="post">
                                     <div class="form-group">
                                         <input type="text" placeholder="Unesi kod kupona..">
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn  btn-md" name="login">Potvrdi Kupon</button>
+                                        <button class="btn  btn-md" name="login">Confirm Coupon</button>
                                     </div>
                                 </form>
                             </div>
@@ -676,7 +676,7 @@
 
                             <div class="payment_method">
                                 <div class="mb-25">
-                                    <h5>Način plaćanja</h5>
+                                    <h5>Method of payment</h5>
                                   
                                 </div>
                                 <div class="payment_option mb-20">
@@ -687,11 +687,11 @@
                                        
                                     </div>
                                     <div class="custome-radio">
-                                            <input wire:model="payment_option"  type="radio" value="Plaćanje karticom" />Plaćanje karticom
+                                            <input wire:model="payment_option"  type="radio" value="Payment by card" />Payment by card
                                             
                                     </div>
                                     <div class="custome-radio">
-                                            <input wire:model="payment_option" type="radio" value="Plaćanje pouzeću" /> Plaćanje pouzeću
+                                            <input wire:model="payment_option" type="radio" value="Cash on delivery payment" /> Cash on delivery payment
                                     </div>
                                     @error('payment_option')
                                         <p class="text-danger">{{ $message }}</p>
@@ -701,17 +701,17 @@
 
 
                             <div class="mb-20">
-                                <h5>Dodatne informacije</h5>
+                                <h5>Additional information</h5>
                             </div>
                             <div class="form-group mb-30">
                                 <textarea rows="5" placeholder=""></textarea>
                             </div>
 
                             @if (Cart::instance('cart_'.session()->getId())->count() > 0)
-                            <button class="btn btn-fill-out btn-block mt-30"  >Pošalji Narudžbu</button>
+                            <button class="btn btn-fill-out btn-block mt-30"  >Send Order</button>
 
                             @else
-                            <button class="btn btn-fill-out btn-block mt-30 mb-30" disabled  >Korpa je prazna</button>
+                            <button class="btn btn-fill-out btn-block mt-30 mb-30" disabled  >Cart is empty</button>
                             @endif
 
                             @if(Session::has('success_message'))

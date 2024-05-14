@@ -13,7 +13,7 @@ class ShopComponent extends Component
 
     use WithPagination;
     public $pageSize = 12;
-    public $orderBy = 'Svi artikli';
+    public $orderBy = 'All Articles';
     public $min_value = 0;
     public $max_value = 100;
     public $count_red;
@@ -85,7 +85,7 @@ class ShopComponent extends Component
         if ($this->blue) {
             $colors[] = 'blue';
         }
-        if ($this->orderBy == 'Cijena: od manje prema većoj') {
+        if ($this->orderBy == 'Price: from less to more') {
 
             $products = Product::when($colors, function ($query) use ($colors) {
                 return $query->whereIn('color', $colors);
@@ -95,7 +95,7 @@ class ShopComponent extends Component
                 })
                 ->whereBetween('regular_price', [$this->min_value, $this->max_value])->orderBy('regular_price', 'ASC')
                 ->paginate($this->pageSize);
-        } else if ($this->orderBy == 'Cijena: od veće prema manjoj') {
+        } else if ($this->orderBy == 'Price: from higher to lower') {
 
             $products = Product::when($colors, function ($query) use ($colors) {
                 return $query->whereIn('color', $colors);
@@ -105,7 +105,7 @@ class ShopComponent extends Component
                 })
                 ->whereBetween('regular_price', [$this->min_value, $this->max_value])->orderBy('regular_price', 'DESC')
                 ->paginate($this->pageSize);
-        } else if ($this->orderBy == 'Najnoviji artikli') {
+        } else if ($this->orderBy == 'Latest items') {
 
             $products = Product::when($colors, function ($query) use ($colors) {
                 return $query->whereIn('color', $colors);
@@ -129,6 +129,8 @@ class ShopComponent extends Component
 
         $lproducts = Product::orderBy('created_at', 'DESC')->get()->take(3);
         $categories = Category::orderBy('name', 'ASC')->get();
+
+        
 
         return view('livewire.shop-component', compact('products', 'categories', 'lproducts'));
     }

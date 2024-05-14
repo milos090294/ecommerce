@@ -26,7 +26,7 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="{{route ('home.index')}}" rel="nofollow">Naslovna</a>
+                    <a href="{{route ('home.index')}}" rel="nofollow">Home</a>
                     <span></span> Shop 
                 </div>
             </div>
@@ -37,13 +37,13 @@
                     <div class="col-lg-9">
                         <div class="shop-product-fillter">
                             <div class="totall-product">
-                                <p> Pronašli smo  <strong class="text-brand">{{$products->total()}}</strong> artikla za tebe!</p>
+                                <p> We found  <strong class="text-brand">{{$products->total()}}</strong> article for you!</p>
                             </div>
                             <div class="sort-by-product-area">
                                 <div class="sort-by-cover mr-10">
                                     <div class="sort-by-product-wrap">
                                         <div class="sort-by">
-                                            <span><i class="fi-rs-apps"></i>Prikaži:</span>
+                                            <span><i class="fi-rs-apps"></i>Show:</span>
                                         </div>
                                         <div class="sort-by-dropdown-wrap">
                                             <span> {{$pageSize}} <i class="fi-rs-angle-small-down"></i></span>
@@ -62,7 +62,7 @@
                                 <div class="sort-by-cover">
                                     <div class="sort-by-product-wrap">
                                         <div class="sort-by">
-                                            <span><i class="fi-rs-apps-sort"></i>Sortiraj:</span>
+                                            <span><i class="fi-rs-apps-sort"></i>Sort:</span>
                                         </div>
                                         <div class="sort-by-dropdown-wrap">
                                             <span> {{$orderBy}} <i class="fi-rs-angle-small-down"></i></span>
@@ -70,10 +70,10 @@
                                     </div>
                                     <div class="sort-by-dropdown">
                                         <ul>
-                                            <li><a class="{{$orderBy == "Svi artikli" ? 'active': ''}}" href="#" wire:click.prevent="changeOrderBy('Svi artikli')">Svi artikli</a></li>
-                                            <li><a class="{{$orderBy == "Cijena: od manje prema većoj" ? 'active': ''}}" href="#" wire:click.prevent="changeOrderBy('Cijena: od manje prema većoj')">Cijena: od manje prema većoj</a></li>
-                                            <li><a class="{{$orderBy == "Cijena: od veće prema manjoj" ? 'active': ''}}" href="#" wire:click.prevent="changeOrderBy('Cijena: od veće prema manjoj')">Cijena: od veće prema manjoj</a></li>
-                                            <li><a class="{{$orderBy == "Najnoviji artikli" ? 'active': ''}}" href="#" wire:click.prevent="changeOrderBy('Najnoviji artikli')">Najnoviji artikli </a></li>
+                                            <li><a class="{{$orderBy == "All Articles" ? 'active': ''}}" href="#" wire:click.prevent="changeOrderBy('All Articles')">All Articles</a></li>
+                                            <li><a class="{{$orderBy == "Price: from less to more" ? 'active': ''}}" href="#" wire:click.prevent="changeOrderBy('Price: from less to more')">Price: from less to more</a></li>
+                                            <li><a class="{{$orderBy == "Price: from higher to lower" ? 'active': ''}}" href="#" wire:click.prevent="changeOrderBy('Price: from higher to lower')">Price: from higher to lower</a></li>
+                                            <li><a class="{{$orderBy == "Latest items" ? 'active': ''}}" href="#" wire:click.prevent="changeOrderBy('Latest items')">Latest items </a></li>
                                         
                                         </ul>
                                     </div>
@@ -157,12 +157,12 @@
                             <div class="col-lg-12 col-mg-6"></div>
                         </div>
                         <div class="widget-category mb-30">
-                            <h5 class="section-title style-1 mb-30 wow fadeIn animated">Kategorija</h5>
+                            <h5 class="section-title style-1 mb-30 wow fadeIn animated">Category</h5>
                             <ul class="categories">
                                 
 
                                 <select wire:model="category" class="custom-select">
-                                    <option value="">Sve Kategorije</option>
+                                    <option value="">All categories</option>
                                     @foreach ($categories as $category)
                                         <option value="{{$category->id}}">{{$category->name}}</option>
                                     @endforeach
@@ -178,7 +178,7 @@
                         <!-- Fillter By Price -->
                         <div class="sidebar-widget price_range range mb-30">
                             <div class="widget-header position-relative mb-20 pb-10">
-                                <h5 class="widget-title mb-10">Filtriraj po cijeni</h5>
+                                <h5 class="widget-title mb-10">Filter by Price</h5>
                                 <div class="bt-1 border-color-1"></div>
                             </div>
                             <div class="price-filter">
@@ -186,23 +186,23 @@
                                     <div id="slider-range" wire:ignore></div>
                                     <div class="price_slider_amount">
                                         <div class="label-input">
-                                            <span>Range:</span> <span class="text-info">BAM {{$min_value}}</span> <span> - </span><span class="text-info">BAM {{$max_value}}</span>
+                                            <span>Range:</span> <span class="text-info">EUR {{$min_value}}</span> <span> - </span><span class="text-info">EUR {{$max_value}}</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="list-group">
                                 <div class="list-group-item mb-10 mt-10">
-                                    <label class="fw-900">Boja</label>
+                                    <label class="fw-900">Color</label>
                                     <div class="custome-checkbox">
                                         <input wire:model="red" class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox1" value="red">
-                                        <label class="form-check-label" for="exampleCheckbox1"><span>Crvena ({{$count_red}})</span></label>
+                                        <label class="form-check-label" for="exampleCheckbox1"><span>Red ({{$count_red}})</span></label>
                                         <br>
                                         <input wire:model="green" class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox2" value="green">
-                                        <label class="form-check-label" for="exampleCheckbox2"><span>Zelena ({{$count_green}})</span></label>
+                                        <label class="form-check-label" for="exampleCheckbox2"><span>Green ({{$count_green}})</span></label>
                                         <br>
                                         <input wire:model="blue" class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox3" value="blue">
-                                        <label class="form-check-label" for="exampleCheckbox3"><span>Plava ({{$count_blue}})</span></label>
+                                        <label class="form-check-label" for="exampleCheckbox3"><span>Blue ({{$count_blue}})</span></label>
                                     </div>
                                     {{-- <label class="fw-900 mt-15">Item Condition</label>
                                     <div class="custome-checkbox">
@@ -222,7 +222,7 @@
                         <!-- Product sidebar Widget -->
                         <div class="sidebar-widget product-sidebar  mb-30 p-30 bg-grey border-radius-10">
                             <div class="widget-header position-relative mb-20 pb-10">
-                                <h5 class="widget-title mb-10">Novi Artikli</h5>
+                                <h5 class="widget-title mb-10">New Articles</h5>
                                 <div class="bt-1 border-color-1"></div>
                             </div>
                             @foreach ($lproducts as $lproduct)

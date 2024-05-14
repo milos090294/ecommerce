@@ -30,8 +30,8 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="{{route ('home.index')}}" rel="nofollow">Naslovna</a>
-                    <span></span> Lista Želja
+                    <a href="{{route ('home.index')}}" rel="nofollow">Home</a>
+                    <span></span> Wishlist
                 </div>
             </div>
         </div>
@@ -71,7 +71,7 @@
                                     </span>
                                 </div>
                                 <div class="product-price">
-                                    <span>BAM {{$item->model->regular_price}}  </span>
+                                    <span>EUR {{$item->model->regular_price}}  </span>
                                    {{-- /<span class="old-price">${{245.8}}</span> --}}
                                 </div>
                                 <div class="product-action-1 show">

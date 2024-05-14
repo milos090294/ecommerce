@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-<title>Zenski Ves</title>
+<title>Underwear Shop</title>
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,9 +41,9 @@
                         <div class="text-center">
                             <div id="news-flash" class="d-inline-block p-1">
                                 <ul >
-                                    <li >Gaćice različitih vrsta  <a href="{{route ('shop')}}">Vidi detaljnije</a></li>
-                                    <li>Super Ponuda</li>
-                                    <li>Probudite vašu ženstvenost <a href="{{route ('shop') }}">Kupi Sada</a></li>
+                                    <li >Underwear of different types<a href="{{route ('shop')}}">  in more detail</a></li>
+                                    <li>Super Offer</li>
+                                    <li>Awaken your femininity<a href="{{route ('shop') }}"> Buy Now</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -56,7 +56,7 @@
                                     <i class="fi-rs-user"></i>{{ Auth::user()->name }}  / 
                                     <form action="{{ route ('logout')}}" method="post">
                                     @csrf
-                                    <a href="{{route ('logout')}}" onclick="event.preventDefault(); this.closest('form').submit();">Izloguj se</a>
+                                    <a href="{{route ('logout')}}" onclick="event.preventDefault(); this.closest('form').submit();">Log out</a>
 
                                     </form>
                                 
@@ -64,7 +64,7 @@
                             </ul>
                             @else
                             <ul>                                
-                                <li><i class="fi-rs-key"></i><a href="{{route ('login') }}">Uloguj se</a>  / <a href="{{route ('register')}}">Registruj se</a></li>
+                                <li><i class="fi-rs-key"></i><a href="{{route ('login') }}">Log in</a>  / <a href="{{route ('register')}}">Register</a></li>
                             </ul>
                             @endauth
                             
@@ -102,7 +102,7 @@
                     <div class="header-nav d-none d-lg-flex">
                         <div class="main-categori-wrap d-none d-lg-block">
                             <a class="categori-button-active" href="#">
-                                <span class="fi-rs-apps"></span> Pretraži Kategoriju
+                                <span class="fi-rs-apps"></span> Search category
                             </a>
                     @php
                         $categories = App\Models\Category::all();
@@ -239,7 +239,7 @@
                         <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block">
                             <nav>
                                 <ul>
-                                    <li><a @if (Route::currentRouteName() == "home.index") class="active" @endif href="/">Naslovna </a></li>
+                                    <li><a @if (Route::currentRouteName() == "home.index") class="active" @endif href="/">Home </a></li>
 
                                     <li><a @if (Route::currentRouteName() == "shop") class="active" @endif  href="{{route('shop')}}">Shop</a></li>
 
@@ -300,7 +300,7 @@
                                             </li>
                                         </ul>
                                     </li> --}}                                  
-                                    <li><a href="#contact">Kontakt</a></li>
+                                    <li><a href="#contact">Contact</a></li>
                                     @auth
                                     <li><a href="#">My Account<i class="fi-rs-angle-down"></i></a>
                                         
@@ -329,7 +329,7 @@
                         </div>
                     </div>
                     <div class="hotline d-none d-lg-block">
-                        <p><i class="fi-rs-smartphone"></i><span>Telefon:</span> (+387) 603028373 </p>
+                        <p><i class="fi-rs-smartphone"></i><span>Phone:</span> (+387) 603028373 </p>
                     </div>
                     <p class="mobile-promotion">Happy <span class="text-brand">Mother's Day</span>. Big Sale Up to 40%</p>
                     <div class="header-action-right d-block d-lg-none">
@@ -369,7 +369,7 @@
                 <div class="mobile-menu-wrap mobile-header-border">
                     <div class="main-categori-wrap mobile-header-border">
                         <a class="categori-button-active-2" href="#">
-                            <span class="fi-rs-apps"></span> Pretraži Kategorije
+                            <span class="fi-rs-apps"></span> Search categories
                         </a>
                         <div class="categori-dropdown-wrap categori-dropdown-active-small">
                             <ul>
@@ -383,7 +383,7 @@
                     <nav>
                         <ul class="mobile-menu">
                             <li class="menu-item-has-children"><span class="menu-expand"></span><a href="/">Home</a></li>
-                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="{{route ('shop')}}">shop</a></li>
+                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="{{route ('shop')}}">Shop</a></li>
                             {{-- <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Our Collections</a>
                                 <ul class="dropdown">
                                     <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Women's Fashion</a>
@@ -427,20 +427,20 @@
                 </div>
                 <div class="mobile-header-info-wrap mobile-header-border">
                     <div class="single-mobile-header-info mt-30">
-                        <a href="#contact"> Kontakt </a>
+                        <a href="#contact"> Contact </a>
                     </div>
                     <div class="single-mobile-header-info">
-                        <a href="{{route('login')}}">Uloguj se </a>                        
+                        <a href="{{route('login')}}">Login </a>                        
                     </div>
                     <div class="single-mobile-header-info">                        
-                        <a href="{{route('register')}}">Registruj se</a>
+                        <a href="{{route('register')}}">Register</a>
                     </div>
                     <div class="single-mobile-header-info">
                         <a href="#">(+387) 603028373 </a>
                     </div>
                 </div>
                 <div class="mobile-social-icon">
-                    <h5 class="mb-15 text-grey-4">Zaprati nas</h5>
+                    <h5 class="mb-15 text-grey-4">Follow us</h5>
                     <a href="#"><img src="assets/imgs/theme/icons/icon-facebook.svg" alt=""></a>
                     <a href="#"><img src="assets/imgs/theme/icons/icon-twitter.svg" alt=""></a>
                     <a href="#"><img src="assets/imgs/theme/icons/icon-instagram.svg" alt=""></a>
@@ -463,17 +463,17 @@
                         <div class="row align-items-center">
                             <div class="col flex-horizontal-center">
                                 <img class="icon-email" src="assets/imgs/theme/icons/icon-email.svg" alt="">
-                                <h4 class="font-size-20 mb-0 ml-3">Registruj se na  Newsletter</h4>
+                                <h4 class="font-size-20 mb-0 ml-3">Register on Newsletter</h4>
                             </div>
                             <div class="col my-4 my-md-0 des">
-                                <h5 class="font-size-15 ml-4 mb-0">...i dobićes<strong> 10% kupon za prvu kupovinu.</strong></h5>
+                                <h5 class="font-size-15 ml-4 mb-0">...and get<strong> 10% coupon for first buy.</strong></h5>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-5">
                         <!-- Subscribe Form -->
                         <form class="form-subcriber d-flex wow fadeIn animated">
-                            <input type="email" class="form-control bg-white font-small" placeholder="Upiši svoj Email">
+                            <input type="email" class="form-control bg-white font-small" placeholder="Write Email">
                             <button class="btn bg-dark text-white" type="submit">Subscribe</button>
                         </form>
                         <!-- End Subscribe Form -->
@@ -492,15 +492,15 @@
                             </div>
                             <h5 class="mt-20 mb-10 fw-600 text-grey-4 wow fadeIn animated">Contact</h5>
                             <p class="wow fadeIn animated">
-                                <strong>Adresa: </strong>Banja Luka bb
+                                <strong>Adress: </strong>Banja Luka bb
                             </p>
                             <p class="wow fadeIn animated">
-                                <strong>Telefon: </strong>065584789
+                                <strong>Phone: </strong>065584789
                             </p>
                             <p class="wow fadeIn animated">
-                                <strong>Email: </strong>zenskives@gmail.com
+                                <strong>Email: </strong>losmikovac@hotmail.com
                             </p>
-                            <h5 class="mb-10 mt-30 fw-600 text-grey-4 wow fadeIn animated">Zaprati Nas!</h5>
+                            <h5 class="mb-10 mt-30 fw-600 text-grey-4 wow fadeIn animated">Follow us!</h5>
                             <div class="mobile-social-icon wow fadeIn animated mb-sm-5 mb-md-0">
                                 <a href="#"><img src="assets/imgs/theme/icons/icon-facebook.svg" alt=""></a>
                                 {{-- <a href="#"><img src="assets/imgs/theme/icons/icon-twitter.svg" alt=""></a> --}}
@@ -513,10 +513,10 @@
                     <div class="col-lg-2 col-md-3">
                         <h5 class="widget-title wow fadeIn animated">Info</h5>
                         <ul class="footer-list wow fadeIn animated mb-sm-5 mb-md-0">
-                            <li><a href="#">O Nama</a></li>
-                            <li><a href="#">Dostava</a></li>
-                            <li><a href="#">Politika Privatnosti</a></li>
-                            <li><a href="#">Uslovi Poslovanja</a></li>
+                            <li><a href="#">About us</li>
+                            <li><a href="#">Delivery</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
                             {{-- <li><a href="#">Contact Us</a></li>                             --}}
                         </ul>
                     </div>
