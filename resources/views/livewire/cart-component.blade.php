@@ -16,105 +16,105 @@
                         <div class="table-responsive">
 
                             @if (Session::has('success_message'))
-                                <div class="alert alert-success">
-                                    <strong>{{ Session::get('success_message') }}</strong>
-                                </div>
+                            <div class="alert alert-success">
+                                <strong>{{ Session::get('success_message') }}</strong>
+                            </div>
                             @endif
 
                             @if (Cart::instance('cart_' . session()->getId())->count() > 0)
-                                <table class="table shopping-summery text-center clean">
-                                    <thead>
-                                        <tr class="main-heading">
-                                            <th scope="col">Picture</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Price</th>
-                                            <th scope="col">Quantity</th>
-                                            <th scope="col">Size</th>
-                                            <th scope="col">Total</th>
-                                            <th scope="col">Remove</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                            <table class="table shopping-summery text-center clean">
+                                <thead>
+                                    <tr class="main-heading">
+                                        <th scope="col">Picture</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Size</th>
+                                        <th scope="col">Total</th>
+                                        <th scope="col">Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                                        @foreach (Cart::instance('cart_' . session()->getId())->content() as $item)
-                                            <tr>
-                                                <td class="image product-thumbnail"><img
-                                                        src="{{ asset('assets/imgs/products') }}/{{ $item->model->image }}"
-                                                        alt="#"></td>
-                                                <td class="product-des product-name">
-                                                    <h5 class="product-name"><a
-                                                            href="{{ route('product.details', ['slug' => $item->model->slug]) }}">{{ $item->model->name }}</a>
-                                                    </h5>
-                                                    {{-- <p class="font-xs">Maboriosam in a tonto nesciung eget<br> distingy magndapibus.
+                                    @foreach (Cart::instance('cart_' . session()->getId())->content() as $item)
+                                    <tr>
+                                        <td class="image product-thumbnail"><img
+                                                src="{{ asset('assets/imgs/products') }}/{{ $item->model->image }}"
+                                                alt="#"></td>
+                                        <td class="product-des product-name">
+                                            <h5 class="product-name"><a
+                                                    href="{{ route('product.details', ['slug' => $item->model->slug]) }}">{{
+                                                    $item->model->name }}</a>
+                                            </h5>
+                                            {{-- <p class="font-xs">Maboriosam in a tonto nesciung eget<br> distingy
+                                                magndapibus.
                                             </p> --}}
-                                                </td>
-                                                <td class="price" data-title="Cijena"><span>BAM
-                                                        {{ $item->model->regular_price }}</span></td>
-                                                <td class="text-center" data-title="Količina">
-                                                    <div class="detail-qty border radius  m-auto">
-                                                        <a wire:click.prevent="decreaseQuantity('{{ $item->rowId }}')"
-                                                            href="#" class="qty-down"><i
-                                                                class="fi-rs-angle-small-down"></i></a>
-                                                        <span class="qty-val">{{ $item->qty }}</span>
-                                                        <a wire:click.prevent="increaseQuantity('{{ $item->rowId }}')"
-                                                            href="#" class="qty-up"><i
-                                                                class="fi-rs-angle-small-up"></i></a>
-                                                    </div>
-                                                </td>
-                                                <td class="text-right" data-title="Veličina">
-                                                    <div class="">
+                                        </td>
+                                        <td class="price" data-title="Cijena"><span>BAM&nbsp;{{
+                                                $item->model->regular_price }}</span></td>
+                                        <td class="text-center" data-title="Količina">
+                                            <div class="detail-qty border radius  m-auto">
+                                                <a wire:click.prevent="decreaseQuantity('{{ $item->rowId }}')" href="#"
+                                                    class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
+                                                <span class="qty-val">{{ $item->qty }}</span>
+                                                <a wire:click.prevent="increaseQuantity('{{ $item->rowId }}')" href="#"
+                                                    class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
+                                            </div>
+                                        </td>
+                                        <td class="text-right" data-title="Veličina">
+                                            <div class="">
 
-                                                        <ul class="list-filter size-filter font-small">
-                                                            <li
-                                                                class="{{ $item->options->size === 'S' ? 'active' : '' }}">
-                                                                <a wire:click="changeSize('{{ $item->rowId }}', 'S')"
-                                                                    href="#">S</a></li>
-                                                            <li
-                                                                class="{{ $item->options->size === 'M' ? 'active' : '' }}">
-                                                                <a wire:click="changeSize('{{ $item->rowId }}', 'M')"
-                                                                    href="#">M</a></li>
-                                                            <li
-                                                                class="{{ $item->options->size === 'L' ? 'active' : '' }}">
-                                                                <a wire:click="changeSize('{{ $item->rowId }}', 'L')"
-                                                                    href="#">L</a></li>
-                                                            <li
-                                                                class="{{ $item->options->size === 'XL' ? 'active' : '' }}">
-                                                                <a wire:click="changeSize('{{ $item->rowId }}', 'XL')"
-                                                                    href="#">XL</a></li>
-                                                            <li
-                                                                class="{{ $item->options->size === 'XXL' ? 'active' : '' }}">
-                                                                <a wire:click.defer="changeSize('{{ $item->rowId }}', 'XXL')"
-                                                                    href="#">XXL</a></li>
-                                                        </ul>
+                                                <ul class="list-filter size-filter font-small">
+                                                    <li class="{{ $item->options->size === 'S' ? 'active' : '' }}">
+                                                        <a wire:click="changeSize('{{ $item->rowId }}', 'S')"
+                                                            href="#">S</a>
+                                                    </li>
+                                                    <li class="{{ $item->options->size === 'M' ? 'active' : '' }}">
+                                                        <a wire:click="changeSize('{{ $item->rowId }}', 'M')"
+                                                            href="#">M</a>
+                                                    </li>
+                                                    <li class="{{ $item->options->size === 'L' ? 'active' : '' }}">
+                                                        <a wire:click="changeSize('{{ $item->rowId }}', 'L')"
+                                                            href="#">L</a>
+                                                    </li>
+                                                    <li class="{{ $item->options->size === 'XL' ? 'active' : '' }}">
+                                                        <a wire:click="changeSize('{{ $item->rowId }}', 'XL')"
+                                                            href="#">XL</a>
+                                                    </li>
+                                                    <li class="{{ $item->options->size === 'XXL' ? 'active' : '' }}">
+                                                        <a wire:click.defer="changeSize('{{ $item->rowId }}', 'XXL')"
+                                                            href="#">XXL</a>
+                                                    </li>
+                                                </ul>
 
-                                                    </div>
-                                                </td>
-                                                <td class="text-right" data-title="Ukupno">
-                                                    <span>BAM {{ $item->subtotal }} </span>
-                                                </td>
-                                                <td wire:click.prevent="destroy('{{ $item->rowId }}')"class="action"
-                                                    data-title="Izbriši"><a href="#" class="text-muted"><i
-                                                            class="fi-rs-trash"></i></a></td>
-                                            </tr>
-                                        @endforeach
+                                            </div>
+                                        </td>
+                                        <td class="text-right" data-title="Ukupno">
+                                            <span>BAM&nbsp;{{ $item->subtotal }} </span>
+                                        </td>
+                                        <td wire:click.prevent="destroy('{{ $item->rowId }}')" class="action"
+                                            data-title="Izbriši"><a href="#" class="text-muted"><i
+                                                    class="fi-rs-trash"></i></a></td>
+                                    </tr>
+                                    @endforeach
 
-                                        <tr>
-                                            <td colspan="6" class="text-end">
-                                                <a href="" class="text-muted" wire:click.prevent="clearCart"> <i
-                                                        class="fi-rs-cross-small"></i>Remove all from cart</a>
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <td colspan="6" class="text-end">
+                                            <a href="" class="text-muted" wire:click.prevent="clearCart"> <i
+                                                    class="fi-rs-cross-small"></i>Remove all from cart</a>
+                                        </td>
+                                    </tr>
 
-                                    </tbody>
-                                </table>
+                                </tbody>
+                            </table>
                             @else
-                                <p>No Item in Cart</p>
+                            <p>No Item in Cart</p>
                             @endif
                         </div>
                         <div class="cart-action text-end">
                             {{-- <a class="btn  mr-10 mb-sm-15"><i class="fi-rs-shuffle mr-10"></i>Update Cart</a> --}}
-                            <a href="{{ route('shop') }}" class="btn "><i
-                                    class="fi-rs-shopping-bag mr-10"></i>Continue shopping</a>
+                            <a href="{{ route('shop') }}" class="btn "><i class="fi-rs-shopping-bag mr-10"></i>Continue
+                                shopping</a>
                         </div>
                         <div class="divider center_icon mt-50 mb-50"><i class="fi-rs-fingerprint"></i></div>
                         <div class="row mb-50">
@@ -379,15 +379,18 @@
                                     </div>
                                     <div class="form-row row">
                                         <div class="form-group col-lg-6">
-                                            <input required="required" placeholder="State / Country" name="name" type="text">
+                                            <input required="required" placeholder="State / Country" name="name"
+                                                type="text">
                                         </div>
                                         <div class="form-group col-lg-6">
-                                            <input required="required" placeholder="PostCode / ZIP" name="name" type="text">
+                                            <input required="required" placeholder="PostCode / ZIP" name="name"
+                                                type="text">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-lg-12">
-                                            <button class="btn  btn-sm"><i class="fi-rs-shuffle mr-10"></i>Update</button>
+                                            <button class="btn  btn-sm"><i
+                                                    class="fi-rs-shuffle mr-10"></i>Update</button>
                                         </div>
                                     </div>
                                 </form>
@@ -401,10 +404,12 @@
                                                 <form action="#" target="_blank">
                                                     <div class="form-row row justify-content-center">
                                                         <div class="form-group col-lg-6">
-                                                            <input class="font-medium" name="Coupon" placeholder="Enter Your Coupon">
+                                                            <input class="font-medium" name="Coupon"
+                                                                placeholder="Enter Your Coupon">
                                                         </div>
                                                         <div class="form-group col-lg-6">
-                                                            <button class="btn  btn-sm"><i class="fi-rs-label mr-10"></i>Apply</button>
+                                                            <button class="btn  btn-sm"><i
+                                                                    class="fi-rs-label mr-10"></i>Apply</button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -425,26 +430,30 @@
                                                 <tr>
                                                     <td class="cart_total_label">Total</td>
 
-                                                    <td class="cart_total_amount"> <i class="ti-gift mr-5"></i>BAM
-                                                        {{ Cart::instance('cart_' . session()->getId())->subtotal() }}
+                                                    <td class="cart_total_amount"> <i
+                                                            class="ti-gift mr-5"></i>BAM&nbsp;{{ Cart::instance('cart_'
+                                                        . session()->getId())->subtotal() }}
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="cart_total_label">TAX</td>
 
-                                                    <td class="cart_total_amount"> <i class="ti-gift mr-5"></i>BAM
-                                                        {{ Cart::instance('cart_' . session()->getId())->tax() }}</td>
+                                                    <td class="cart_total_amount"> <i
+                                                            class="ti-gift mr-5"></i>BAM&nbsp;{{ Cart::instance('cart_'
+                                                        . session()->getId())->tax() }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="cart_total_label">Delivery</td>
-                                                    <td class="cart_total_amount"> <i class="ti-gift mr-5"></i>BAM 8
+                                                    <td class="cart_total_amount"> <i
+                                                            class="ti-gift mr-5"></i>BAM&nbsp;8
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="cart_total_label">Total</td>
                                                     <td class="cart_total_amount"><strong><span
-                                                                class="font-xl fw-900 text-brand">BAM
-                                                                {{ Cart::instance('cart_' . session()->getId())->total() + 8 }}</span></strong>
+                                                                class="font-xl fw-900 text-brand">BAM&nbsp;{{
+                                                                Cart::instance('cart_' . session()->getId())->total() +
+                                                                8 }}</span></strong>
                                                     </td>
                                                 </tr>
                                             </tbody>

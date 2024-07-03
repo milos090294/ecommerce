@@ -116,7 +116,7 @@
                                         </div>
                                         <div class="product-content-wrap">
                                             <div class="product-category">
-                                                <a href="shop.html">Music</a>
+                                                <a href="{{route ('product.category', ['slug' => $product->category->name])}}">{{$product->category->name}}</a>
                                             </div>
                                             <h2><a
                                                     href="{{ route('product.details', ['slug' => $product->slug]) }}">{{ $product->name }}</a>
@@ -127,7 +127,7 @@
                                                 </span>
                                             </div>
                                             <div class="product-price">
-                                                <span>$ {{ $product->regular_price }} </span>
+                                                <span>BAM&nbsp;{{ $product->regular_price }}</span>
                                                 {{-- /<span class="old-price">${{245.8}}</span> --}}
                                             </div>
                                             <div class="product-action-1 show">
@@ -231,7 +231,7 @@
                                         <h5><a
                                                 href="{{ route('product.details', ['slug' => $lproduct->slug]) }}">{{ $lproduct->name }}</a>
                                         </h5>
-                                        <p class="price mb-0 mt-5">{{ $lproduct->regular_price }} BAM</p>
+                                        <p class="price mb-0 mt-5">BAM&nbsp;{{ $lproduct->regular_price }}</p>
                                         <div class="product-rate">
                                             <div class="product-rating" style="width:90%"></div>
                                         </div>

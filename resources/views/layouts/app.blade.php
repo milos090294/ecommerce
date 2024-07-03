@@ -425,12 +425,12 @@
                     <div class="single-mobile-header-info mt-30">
                         <a href="#contact"> Contact </a>
                     </div>
-                    <div class="single-mobile-header-info">
+                    {{-- <div class="single-mobile-header-info">
                         <a href="{{route('login')}}">Login </a>                        
                     </div>
                     <div class="single-mobile-header-info">                        
                         <a href="{{route('register')}}">Register</a>
-                    </div>
+                    </div> --}}
                     <div class="single-mobile-header-info">
                         <a href="#">(+387) 603028373 </a>
                     </div>
@@ -438,10 +438,7 @@
                 <div class="mobile-social-icon">
                     <h5 class="mb-15 text-grey-4">Follow us</h5>
                     <a href="#"><img src="assets/imgs/theme/icons/icon-facebook.svg" alt=""></a>
-                    <a href="#"><img src="assets/imgs/theme/icons/icon-twitter.svg" alt=""></a>
                     <a href="#"><img src="assets/imgs/theme/icons/icon-instagram.svg" alt=""></a>
-                    <a href="#"><img src="assets/imgs/theme/icons/icon-pinterest.svg" alt=""></a>
-                    <a href="#"><img src="assets/imgs/theme/icons/icon-youtube.svg" alt=""></a>
                 </div>
             </div>
         </div>
@@ -509,7 +506,6 @@
                             {{-- <a href="#"><img src="assets/imgs/theme/icons/icon-twitter.svg" alt=""></a> --}}
                             <a href="#"><img src="assets/imgs/theme/icons/icon-instagram.svg" alt=""></a>
                             {{-- <a href="#"><img src="assets/imgs/theme/icons/icon-pinterest.svg" alt=""></a> --}}
-                            <a href="#"><img src="assets/imgs/theme/icons/icon-youtube.svg" alt=""></a>
                         </div>
                     </div>
                 </div>
