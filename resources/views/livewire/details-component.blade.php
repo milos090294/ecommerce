@@ -10,80 +10,33 @@
                 </div>
             </div>
         </div>
-        <marquee behavior="" direction="" class="mt-2 text-white bg-success" style="font-size: 16px; font-weight:bold;">Fast Delivery & Secure Shopping</marquee>
         <section class="mt-50 mb-50">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9">
-                        <div class="product-detail accordion-detail">
+                        <div class="product-details">
                             <div class="row mb-50">
                                 <div class="col-md-6 col-sm-12 col-xs-12">
-                                    <div class="detail-gallery">
-                                        <span class="zoom-icon"><i class="fi-rs-search"></i></span>
-                                        <!-- MAIN SLIDES -->
-                                        <div class="product-image-slider">
-                                            <figure class="border-radius-10">
-                                                <img src="{{ asset('assets/imgs/products')}}/{{$product->image}}" alt="product image">
-                                            </figure>
-                                           
-                                             @isset($product->image2)
-                                             <figure class="border-radius-10">
-                                                <img src="{{ asset('assets/imgs/products')}}/{{$product->image2}}"  alt="product image">
-                                            </figure>
-                                             @endisset
-
-                                             
-                                             @isset($product->image3)
-                                             <figure class="border-radius-10">
-                                                <img src="{{ asset('assets/imgs/products')}}/{{$product->image3}}"  alt="product image">
-                                            </figure>
-                                             @endisset
-
-                                             
-                                             @isset($product->image4)
-                                             <figure class="border-radius-10">
-                                                <img src="{{ asset('assets/imgs/products')}}/{{$product->image4}}"  alt="product image">
-                                            </figure>
-                                             @endisset
-                                        </div>
-                                        <!-- THUMBNAILS -->
-                                        <div class="slider-nav-thumbnails pl-15 pr-15">
-
-                                            
-                                            @isset($product->image)
-                                            <div><img src="{{ asset('assets/imgs/products')}}/{{$product->image}}"  alt="product image"></div>
-                                            @endisset
-                                            
-                                            @isset($product->image1)
-                                            <div><img src="{{ asset('assets/imgs/products')}}/{{$product->image1}}"  alt="product image"></div>
-                                            @endisset
-
-                                            @isset($product->image2)
-                                            <div><img src="{{ asset('assets/imgs/products')}}/{{$product->image2}}"  alt="product image"></div>
-                                            @endisset
-
-                                            
-                                            @isset($product->image3)
-                                            <div><img src="{{ asset('assets/imgs/products')}}/{{$product->image3}}"  alt="product image"></div>
-                                            @endisset
-                                            
-                                            
-                                            @isset($product->image4)
-                                            <div><img src="{{ asset('assets/imgs/products')}}/{{$product->image4}}"  alt="product image"></div>
-                                            @endisset
-
-                                          
-                                        </div>
-                                    </div>
-                                    <!-- End Gallery -->
-                                    <div class="social-icons single-share">
-                                        <ul class="text-grey-5 d-inline-block">
-                                            <li><strong class="mr-10">Share this:</strong></li>
-                                            <li class="social-facebook"><a href="#"><img src="{{ asset('assets/imgs/theme/icons/icon-facebook.svg')}}" alt=""></a></li>
-                                            <li class="social-twitter"> <a href="#"><img src="{{ asset('assets/imgs/theme/icons/icon-twitter.svg')}}" alt=""></a></li>
-                                            <li class="social-instagram"><a href="#"><img src="{{ asset('assets/imgs/theme/icons/icon-instagram.svg')}}" alt=""></a></li>
-                                            <li class="social-linkedin"><a href="#"><img src="{{ asset('assets/imgs/theme/icons/icon-pinterest.svg')}}" alt=""></a></li>
-                                        </ul>
+                                    <div class="fotorama" data-nav="thumbs" style="width: 95%;">
+                                        @isset($product->image)
+                                        <img src="{{ asset('assets/imgs/products')}}/{{$product->image}}" alt="product image">
+                                        @endisset
+                                
+                                        @isset($product->image1)
+                                        <img src="{{ asset('assets/imgs/products')}}/{{$product->image1}}" alt="product image">
+                                        @endisset
+                                
+                                        @isset($product->image2)
+                                        <img src="{{ asset('assets/imgs/products')}}/{{$product->image2}}" alt="product image">
+                                        @endisset
+                                
+                                        @isset($product->image3)
+                                        <img src="{{ asset('assets/imgs/products')}}/{{$product->image3}}" alt="product image">
+                                        @endisset
+                                
+                                        @isset($product->image4)
+                                        <img src="{{ asset('assets/imgs/products')}}/{{$product->image4}}" alt="product image">
+                                        @endisset
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-12 col-xs-12">
