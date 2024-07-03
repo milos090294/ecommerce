@@ -231,7 +231,7 @@
                                         <h5><a
                                                 href="{{ route('product.details', ['slug' => $lproduct->slug]) }}">{{ $lproduct->name }}</a>
                                         </h5>
-                                        <p class="price mb-0 mt-5">{{ $lproduct->regular_price }}</p>
+                                        <p class="price mb-0 mt-5">{{ $lproduct->regular_price }} BAM</p>
                                         <div class="product-rate">
                                             <div class="product-rating" style="width:90%"></div>
                                         </div>

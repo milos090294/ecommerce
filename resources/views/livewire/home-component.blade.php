@@ -3,29 +3,29 @@
         <section class="home-slider position-relative pt-50 pb-80">
             <div class="hero-slider-1 dot-style-1 dot-style-1-position-1">
                 @foreach ($slides as $slide)
-                    <div class="single-hero-slider single-animation-wrap">
-                        <div class="container">
-                            <div class="row align-items-center slider-animated-1">
-                                <div class="col-lg-5 col-md-6">
-                                    <div class="hero-slider-content-2">
-                                        <h4 class="animated">{{ $slide->top_title }}</h4>
-                                        <h2 class="animated fw-900">{{ $slide->title }}</h2>
-                                        <h1 class="animated fw-900 text-brand">{{ $slide->sub_title }}</h1>
-                                        <p class="animated">{{ $slide->offer }}</p>
-                                        <a class="animated btn btn-brush btn-brush-3" href="{{ $slide->link }}"> Buy
-                                            Now! </a>
-                                    </div>
+                <div class="single-hero-slider single-animation-wrap">
+                    <div class="container">
+                        <div class="row align-items-center slider-animated-1">
+                            <div class="col-lg-5 col-md-6">
+                                <div class="hero-slider-content-2">
+                                    <h4 class="animated">{{ $slide->top_title }}</h4>
+                                    <h2 class="animated fw-900">{{ $slide->title }}</h2>
+                                    <h1 class="animated fw-900 text-brand">{{ $slide->sub_title }}</h1>
+                                    <p class="animated">{{ $slide->offer }}</p>
+                                    <a class="animated btn btn-brush btn-brush-3" href="{{ $slide->link }}"> Buy
+                                        Now! </a>
                                 </div>
-                                <div class="col-lg-7 col-md-6">
-                                    <div class="single-slider-img single-slider-img-1">
-                                        <img class="animated slider-1-1"
+                            </div>
+                            <div class="col-lg-7 col-md-6">
+                                <div class="single-slider-img single-slider-img-1">
+                                    <center><img class="animated slider-1-1"
                                             src="{{ asset('assets/imgs/slider') }}/{{ $slide->image }}"
-                                            alt="{{ $slide->sub_title }}">
-                                    </div>
+                                            alt="{{ $slide->sub_title }}"></center>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
                 @endforeach
 
             </div>
@@ -79,7 +79,9 @@
                 <div class="tab-header">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         {{-- <li class="nav-item" role="presentation">
-                            <a   class="nav-link active" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-one" type="button" role="tab" aria-controls="tab-one" aria-selected="true" onclick="scrollToForm('#featured')">Featured</a>
+                            <a class="nav-link active" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-one"
+                                type="button" role="tab" aria-controls="tab-one" aria-selected="true"
+                                onclick="scrollToForm('#featured')">Featured</a>
                         </li> --}}
                         <li class="nav-item" role="presentation">
                             <a class="nav-link" id="nav-tab-two" data-bs-toggle="tab" data-bs-target="#tab-two"
@@ -92,7 +94,8 @@
                                 onclick="scrollToForm('#new-added')">Latest Items</a>
                         </li>
                     </ul>
-                    {{-- <a href="#" class="view-more d-none d-md-flex">View More<i class="fi-rs-angle-double-small-right"></i></a> --}}
+                    {{-- <a href="#" class="view-more d-none d-md-flex">View More<i
+                            class="fi-rs-angle-double-small-right"></i></a> --}}
                 </div>
                 <!--End nav-tabs-->
                 <div class="tab-content wow fadeIn animated" id="myTabContent">
@@ -100,52 +103,56 @@
 
                         <div id="featured" class="row product-grid-4">
                             @foreach ($fproducts as $fproduct)
-                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6">
-                                    <div class="product-cart-wrap mb-30">
-                                        <div class="product-img-action-wrap">
-                                            <div class="product-img product-img-zoom">
-                                                <a href="{{ route('product.details', ['slug' => $fproduct->slug]) }}">
-                                                    <img class="default-img"
-                                                        src="{{ asset('assets/imgs/products') }}/{{ $fproduct->image }}"
-                                                        alt="">
-                                                    {{-- <img class="hover-img" src="assets/imgs/shop/product-1-2.jpg" alt=""> --}}
-                                                </a>
-                                            </div>
-                                            <div class="product-action-1">
-                                                {{-- <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a> --}}
-                                                <a aria-label="Add To Wishlist" class="action-btn hover-up"
-                                                    wire:click.prevent = "addToWishList({{ $fproduct->id }}, '{{ $fproduct->name }}', {{ $fproduct->regular_price }})"><i
-                                                        class="fi-rs-heart"></i></a>
-                                                {{-- <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a> --}}
-                                            </div>
-                                            <div class="product-badges product-badges-position product-badges-mrg">
-                                                <span class="hot">Hot</span>
-                                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6">
+                                <div class="product-cart-wrap mb-30">
+                                    <div class="product-img-action-wrap">
+                                        <div class="product-img product-img-zoom">
+                                            <a href="{{ route('product.details', ['slug' => $fproduct->slug]) }}">
+                                                <img class="default-img"
+                                                    src="{{ asset('assets/imgs/products') }}/{{ $fproduct->image }}"
+                                                    alt="">
+                                                {{-- <img class="hover-img" src="assets/imgs/shop/product-1-2.jpg"
+                                                    alt=""> --}}
+                                            </a>
                                         </div>
-                                        <div class="product-content-wrap">
-                                            <div class="product-category">
-                                                <a href="shop.html">Clothing</a>
-                                            </div>
-                                            <h2><a
-                                                    href="{{ route('product.details', ['slug' => $fproduct->slug]) }}">{{ $fproduct->name }}</a>
-                                            </h2>
-                                            <div class="rating-result" title="90%">
-                                                <span>
-                                                    <span>90%</span>
-                                                </span>
-                                            </div>
-                                            <div class="product-price">
-                                                <span>{{ $fproduct->regular_price }} </span>
-                                                {{-- <span class="old-price">$245.8</span> --}}
-                                            </div>
-                                            <div class="product-action-1 show">
-                                                <a wire:click.prevent = "store({{ $fproduct->id }}, '{{ $fproduct->name }}', {{ $fproduct->regular_price }})"
-                                                    aria-label="Add To Cart" class="action-btn hover-up"
-                                                    href="#"><i class="fi-rs-shopping-bag-add"></i></a>
-                                            </div>
+                                        <div class="product-action-1">
+                                            {{-- <a aria-label="Quick view" class="action-btn hover-up"
+                                                data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
+                                                    class="fi-rs-eye"></i></a> --}}
+                                            <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                                wire:click.prevent="addToWishList({{ $fproduct->id }}, '{{ $fproduct->name }}', {{ $fproduct->regular_price }})"><i
+                                                    class="fi-rs-heart"></i></a>
+                                            {{-- <a aria-label="Compare" class="action-btn hover-up"
+                                                href="compare.php"><i class="fi-rs-shuffle"></i></a> --}}
+                                        </div>
+                                        <div class="product-badges product-badges-position product-badges-mrg">
+                                            <span class="hot">Hot</span>
+                                        </div>
+                                    </div>
+                                    <div class="product-content-wrap">
+                                        <div class="product-category">
+                                            <a href="{{ route('shop') }}">Clothing</a>
+                                        </div>
+                                        <h2><a href="{{ route('product.details', ['slug' => $fproduct->slug]) }}">{{
+                                                $fproduct->name }}</a>
+                                        </h2>
+                                        <div class="rating-result" title="90%">
+                                            <span>
+                                                <span>90%</span>
+                                            </span>
+                                        </div>
+                                        <div class="product-price">
+                                            <span>{{ $fproduct->regular_price }} </span>
+                                            {{-- <span class="old-price">$245.8</span> --}}
+                                        </div>
+                                        <div class="product-action-1 show">
+                                            <a wire:click.prevent="store({{ $fproduct->id }}, '{{ $fproduct->name }}', {{ $fproduct->regular_price }})"
+                                                aria-label="Add To Cart" class="action-btn hover-up" href="#"><i
+                                                    class="fi-rs-shopping-bag-add"></i></a>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             @endforeach
 
                         </div>
@@ -164,9 +171,13 @@
                                             </a>
                                         </div>
                                         <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>
+                                            <a aria-label="Quick view" class="action-btn hover-up"
+                                                data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
+                                                    class="fi-rs-eye"></i></a>
+                                            <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                                href="wishlist.php"><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i
+                                                    class="fi-rs-shuffle"></i></a>
                                         </div>
                                         <div class="product-badges product-badges-position product-badges-mrg">
                                             <span class="hot">Hot</span>
@@ -174,7 +185,7 @@
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="shop.html">Donec </a>
+                                            <a href="{{ route('shop') }}">Donec </a>
                                         </div>
                                         <h2><a href="product-details.html">Lorem ipsum dolor</a></h2>
                                         <div class="rating-result" title="90%">
@@ -187,7 +198,8 @@
                                             <span class="old-price">$245.8</span>
                                         </div>
                                         <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i
+                                                    class="fi-rs-shopping-bag-add"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -202,9 +214,13 @@
                                             </a>
                                         </div>
                                         <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>
+                                            <a aria-label="Quick view" class="action-btn hover-up"
+                                                data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
+                                                    class="fi-rs-eye"></i></a>
+                                            <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                                href="wishlist.php"><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i
+                                                    class="fi-rs-shuffle"></i></a>
                                         </div>
                                         <div class="product-badges product-badges-position product-badges-mrg">
                                             <span class="new">New</span>
@@ -212,7 +228,7 @@
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="shop.html">Music</a>
+                                            <a href="{{ route('shop') }}">Music</a>
                                         </div>
                                         <h2><a href="product-details.html">Sed tincidunt interdum</a></h2>
                                         <div class="rating-result" title="90%">
@@ -225,7 +241,8 @@
                                             <span class="old-price">$255.8</span>
                                         </div>
                                         <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i
+                                                    class="fi-rs-shopping-bag-add"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -240,9 +257,13 @@
                                             </a>
                                         </div>
                                         <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>
+                                            <a aria-label="Quick view" class="action-btn hover-up"
+                                                data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
+                                                    class="fi-rs-eye"></i></a>
+                                            <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                                href="wishlist.php"><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i
+                                                    class="fi-rs-shuffle"></i></a>
                                         </div>
                                         <div class="product-badges product-badges-position product-badges-mrg">
                                             <span class="best">Best Sell</span>
@@ -250,7 +271,7 @@
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="shop.html">Watch</a>
+                                            <a href="{{ route('shop') }}">Watch</a>
                                         </div>
                                         <h2><a href="product-details.html">Fusce metus orci</a></h2>
                                         <div class="rating-result" title="90%">
@@ -263,7 +284,8 @@
                                             <span class="old-price">$445.8</span>
                                         </div>
                                         <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i
+                                                    class="fi-rs-shopping-bag-add"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -278,9 +300,13 @@
                                             </a>
                                         </div>
                                         <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>
+                                            <a aria-label="Quick view" class="action-btn hover-up"
+                                                data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
+                                                    class="fi-rs-eye"></i></a>
+                                            <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                                href="wishlist.php"><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i
+                                                    class="fi-rs-shuffle"></i></a>
                                         </div>
                                         <div class="product-badges product-badges-position product-badges-mrg">
                                             <span class="sale">Sale</span>
@@ -288,7 +314,7 @@
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="shop.html">Music</a>
+                                            <a href="{{ route('shop') }}">Music</a>
                                         </div>
                                         <h2><a href="product-details.html">Integer venenatis libero</a></h2>
                                         <div class="rating-result" title="90%">
@@ -301,7 +327,8 @@
                                             <span class="old-price">$235.8</span>
                                         </div>
                                         <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i
+                                                    class="fi-rs-shopping-bag-add"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -316,9 +343,13 @@
                                             </a>
                                         </div>
                                         <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>
+                                            <a aria-label="Quick view" class="action-btn hover-up"
+                                                data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
+                                                    class="fi-rs-eye"></i></a>
+                                            <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                                href="wishlist.php"><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i
+                                                    class="fi-rs-shuffle"></i></a>
                                         </div>
                                         <div class="product-badges product-badges-position product-badges-mrg">
                                             <span class="hot">-30%</span>
@@ -326,7 +357,7 @@
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="shop.html">Speaker</a>
+                                            <a href="{{ route('shop') }}">Speaker</a>
                                         </div>
                                         <h2><a href="product-details.html">Cras tempor orci id</a></h2>
                                         <div class="rating-result" title="90%">
@@ -339,7 +370,8 @@
                                             <span class="old-price">$45.8</span>
                                         </div>
                                         <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i
+                                                    class="fi-rs-shopping-bag-add"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -354,9 +386,13 @@
                                             </a>
                                         </div>
                                         <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>
+                                            <a aria-label="Quick view" class="action-btn hover-up"
+                                                data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
+                                                    class="fi-rs-eye"></i></a>
+                                            <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                                href="wishlist.php"><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i
+                                                    class="fi-rs-shuffle"></i></a>
                                         </div>
                                         <div class="product-badges product-badges-position product-badges-mrg">
                                             <span class="hot">-22%</span>
@@ -364,7 +400,7 @@
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="shop.html">Camera</a>
+                                            <a href="{{ route('shop') }}">Camera</a>
                                         </div>
                                         <h2><a href="product-details.html">Nullam cursus mi qui</a></h2>
                                         <div class="rating-result" title="90%">
@@ -377,7 +413,8 @@
                                             <span class="old-price">$245.8</span>
                                         </div>
                                         <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i
+                                                    class="fi-rs-shopping-bag-add"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -392,9 +429,13 @@
                                             </a>
                                         </div>
                                         <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>
+                                            <a aria-label="Quick view" class="action-btn hover-up"
+                                                data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
+                                                    class="fi-rs-eye"></i></a>
+                                            <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                                href="wishlist.php"><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i
+                                                    class="fi-rs-shuffle"></i></a>
                                         </div>
                                         <div class="product-badges product-badges-position product-badges-mrg">
                                             <span class="new">New</span>
@@ -402,7 +443,7 @@
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="shop.html">Phone</a>
+                                            <a href="{{ route('shop') }}">Phone</a>
                                         </div>
                                         <h2><a href="product-details.html">Fusce fringilla ultrices</a></h2>
                                         <div class="rating-result" title="90%">
@@ -414,7 +455,8 @@
                                             <span>$1275.85 </span>
                                         </div>
                                         <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i
+                                                    class="fi-rs-shopping-bag-add"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -429,14 +471,18 @@
                                             </a>
                                         </div>
                                         <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>
+                                            <a aria-label="Quick view" class="action-btn hover-up"
+                                                data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
+                                                    class="fi-rs-eye"></i></a>
+                                            <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                                href="wishlist.php"><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i
+                                                    class="fi-rs-shuffle"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="shop.html">Accessories </a>
+                                            <a href="{{ route('shop') }}">Accessories </a>
                                         </div>
                                         <h2><a href="product-details.html">Sed sollicitudin est</a></h2>
                                         <div class="rating-result" title="90%">
@@ -449,7 +495,8 @@
                                             <span class="old-price">$245.8</span>
                                         </div>
                                         <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i
+                                                    class="fi-rs-shopping-bag-add"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -470,9 +517,13 @@
                                             </a>
                                         </div>
                                         <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>
+                                            <a aria-label="Quick view" class="action-btn hover-up"
+                                                data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
+                                                    class="fi-rs-eye"></i></a>
+                                            <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                                href="wishlist.php"><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i
+                                                    class="fi-rs-shuffle"></i></a>
                                         </div>
                                         <div class="product-badges product-badges-position product-badges-mrg">
                                             <span class="hot">Hot</span>
@@ -480,7 +531,7 @@
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="shop.html">Music</a>
+                                            <a href="{{ route('shop') }}">Music</a>
                                         </div>
                                         <h2><a href="product-details.html">Donec ut nisl rutrum</a></h2>
                                         <div class="rating-result" title="90%">
@@ -493,7 +544,8 @@
                                             <span class="old-price">$245.8</span>
                                         </div>
                                         <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i
+                                                    class="fi-rs-shopping-bag-add"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -508,9 +560,13 @@
                                             </a>
                                         </div>
                                         <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>
+                                            <a aria-label="Quick view" class="action-btn hover-up"
+                                                data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
+                                                    class="fi-rs-eye"></i></a>
+                                            <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                                href="wishlist.php"><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i
+                                                    class="fi-rs-shuffle"></i></a>
                                         </div>
                                         <div class="product-badges product-badges-position product-badges-mrg">
                                             <span class="new">New</span>
@@ -518,7 +574,7 @@
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="shop.html">Music</a>
+                                            <a href="{{ route('shop') }}">Music</a>
                                         </div>
                                         <h2><a href="product-details.html">Nullam dapibus pharetra</a></h2>
                                         <div class="rating-result" title="90%">
@@ -531,7 +587,8 @@
                                             <span class="old-price">$255.8</span>
                                         </div>
                                         <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i
+                                                    class="fi-rs-shopping-bag-add"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -546,9 +603,13 @@
                                             </a>
                                         </div>
                                         <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>
+                                            <a aria-label="Quick view" class="action-btn hover-up"
+                                                data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
+                                                    class="fi-rs-eye"></i></a>
+                                            <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                                href="wishlist.php"><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i
+                                                    class="fi-rs-shuffle"></i></a>
                                         </div>
                                         <div class="product-badges product-badges-position product-badges-mrg">
                                             <span class="best">Best Sell</span>
@@ -556,7 +617,7 @@
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="shop.html">Watch</a>
+                                            <a href="{{ route('shop') }}">Watch</a>
                                         </div>
                                         <h2><a href="product-details.html">Morbi dictum finibus</a></h2>
                                         <div class="rating-result" title="90%">
@@ -569,7 +630,8 @@
                                             <span class="old-price">$445.8</span>
                                         </div>
                                         <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i
+                                                    class="fi-rs-shopping-bag-add"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -584,9 +646,13 @@
                                             </a>
                                         </div>
                                         <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>
+                                            <a aria-label="Quick view" class="action-btn hover-up"
+                                                data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
+                                                    class="fi-rs-eye"></i></a>
+                                            <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                                href="wishlist.php"><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i
+                                                    class="fi-rs-shuffle"></i></a>
                                         </div>
                                         <div class="product-badges product-badges-position product-badges-mrg">
                                             <span class="sale">Sale</span>
@@ -594,7 +660,7 @@
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="shop.html">Music</a>
+                                            <a href="{{ route('shop') }}">Music</a>
                                         </div>
                                         <h2><a href="product-details.html">Nunc volutpat massa</a></h2>
                                         <div class="rating-result" title="90%">
@@ -607,7 +673,8 @@
                                             <span class="old-price">$235.8</span>
                                         </div>
                                         <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i
+                                                    class="fi-rs-shopping-bag-add"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -622,9 +689,13 @@
                                             </a>
                                         </div>
                                         <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>
+                                            <a aria-label="Quick view" class="action-btn hover-up"
+                                                data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
+                                                    class="fi-rs-eye"></i></a>
+                                            <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                                href="wishlist.php"><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i
+                                                    class="fi-rs-shuffle"></i></a>
                                         </div>
                                         <div class="product-badges product-badges-position product-badges-mrg">
                                             <span class="hot">-30%</span>
@@ -632,7 +703,7 @@
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="shop.html">Speaker</a>
+                                            <a href="{{ route('shop') }}">Speaker</a>
                                         </div>
                                         <h2><a href="product-details.html">Nullam ultricies luctus</a></h2>
                                         <div class="rating-result" title="90%">
@@ -645,7 +716,8 @@
                                             <span class="old-price">$45.8</span>
                                         </div>
                                         <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i
+                                                    class="fi-rs-shopping-bag-add"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -660,9 +732,13 @@
                                             </a>
                                         </div>
                                         <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>
+                                            <a aria-label="Quick view" class="action-btn hover-up"
+                                                data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
+                                                    class="fi-rs-eye"></i></a>
+                                            <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                                href="wishlist.php"><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i
+                                                    class="fi-rs-shuffle"></i></a>
                                         </div>
                                         <div class="product-badges product-badges-position product-badges-mrg">
                                             <span class="hot">-22%</span>
@@ -670,7 +746,7 @@
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="shop.html">Camera</a>
+                                            <a href="{{ route('shop') }}">Camera</a>
                                         </div>
                                         <h2><a href="product-details.html">Nullam mattis enim</a></h2>
                                         <div class="rating-result" title="90%">
@@ -683,7 +759,8 @@
                                             <span class="old-price">$245.8</span>
                                         </div>
                                         <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i
+                                                    class="fi-rs-shopping-bag-add"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -698,9 +775,13 @@
                                             </a>
                                         </div>
                                         <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>
+                                            <a aria-label="Quick view" class="action-btn hover-up"
+                                                data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
+                                                    class="fi-rs-eye"></i></a>
+                                            <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                                href="wishlist.php"><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i
+                                                    class="fi-rs-shuffle"></i></a>
                                         </div>
                                         <div class="product-badges product-badges-position product-badges-mrg">
                                             <span class="new">New</span>
@@ -708,7 +789,7 @@
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="shop.html">Phone</a>
+                                            <a href="{{ route('shop') }}">Phone</a>
                                         </div>
                                         <h2><a href="product-details.html">Vivamus sollicitudin</a></h2>
                                         <div class="rating-result" title="90%">
@@ -720,7 +801,8 @@
                                             <span>$1275.85 </span>
                                         </div>
                                         <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i
+                                                    class="fi-rs-shopping-bag-add"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -735,14 +817,18 @@
                                             </a>
                                         </div>
                                         <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>
+                                            <a aria-label="Quick view" class="action-btn hover-up"
+                                                data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
+                                                    class="fi-rs-eye"></i></a>
+                                            <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                                href="wishlist.php"><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i
+                                                    class="fi-rs-shuffle"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="shop.html">Accessories </a>
+                                            <a href="{{ route('shop') }}">Accessories </a>
                                         </div>
                                         <h2><a href="product-details.html"> Donec ut nisl rutrum</a></h2>
                                         <div class="rating-result" title="90%">
@@ -755,7 +841,8 @@
                                             <span class="old-price">$245.8</span>
                                         </div>
                                         <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i
+                                                    class="fi-rs-shopping-bag-add"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -771,17 +858,16 @@
         <section class="banner-2 section-padding pb-0">
             <div class="container">
                 <div class="banner-img banner-big wow fadeIn animated f-none">
-                    <img src="assets/imgs/banner/banner-4.png" alt="">
+                    <img src="assets/imgs/banner/banner.png" alt="">
                     <div class="banner-text d-md-block d-block">
-                        <h4 class="mb-15 mt-40 text-brand">Carefree shopping</h4>
+                        <h4 class="mb-15 mt-40 text-brand sm-d-none">Carefree shopping</h4>
                         <h1 class="fw-400 mb-20 ">Your safety is <br> our responsibility! <br> </h1>
-                        <a href="{{ route('shop') }}" class="btn"> Buy Now! <i
-                                class="fi-rs-arrow-right"></i></a>
+                        <a href="{{ route('shop') }}" class="btn"> Buy Now! <i class="fi-rs-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="popular" class="popular-categories section-padding mt-15 mb-25">
+        <section id="popular" class="popular-categories section-padding mt-25 mb-25">
             <div class="container wow fadeIn animated">
                 <h3 class="section-title mb-20"><span>Popular</span> Categories</h3>
                 <div class="carausel-6-columns-cover position-relative">
@@ -789,16 +875,15 @@
                     </div>
                     <div class="carausel-6-columns" id="carausel-6-columns">
                         @foreach ($pcategories as $pcategory)
-                            <div class="card-1">
-                                <figure class=" img-hover-scale overflow-hidden">
-                                    <a href="{{ route('product.category', ['slug' => $pcategory->slug]) }}"><img
-                                            src="{{ asset('assets/imgs/categories') }}/{{ $pcategory->image }}"
-                                            alt=""></a>
-                                </figure>
-                                <h5><a
-                                        href="{{ route('product.category', ['slug' => $pcategory->slug]) }}">{{ $pcategory->name }}</a>
-                                </h5>
-                            </div>
+                        <div class="card-1">
+                            <figure class=" img-hover-scale overflow-hidden">
+                                <a href="{{ route('product.category', ['slug' => $pcategory->slug]) }}"><img
+                                        src="{{ asset('assets/imgs/categories') }}/{{ $pcategory->image }}" alt=""></a>
+                            </figure>
+                            <h5><a href="{{ route('product.category', ['slug' => $pcategory->slug]) }}">{{
+                                    $pcategory->name }}</a>
+                            </h5>
+                        </div>
                         @endforeach
 
                     </div>
@@ -814,7 +899,7 @@
                             <div class="banner-text">
                                 <span>Smart Offer</span>
                                 <h4>Save 20% on <br>Woman Bag</h4>
-                                <a href="shop.html">Shop Now <i class="fi-rs-arrow-right"></i></a>
+                                <a href="{{ route('shop') }}">Shop Now <i class="fi-rs-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -824,7 +909,7 @@
                             <div class="banner-text">
                                 <span>Sale off</span>
                                 <h4>Great Summer <br>Collection</h4>
-                                <a href="shop.html">Shop Now <i class="fi-rs-arrow-right"></i></a>
+                                <a href="{{ route('shop') }}">Shop Now <i class="fi-rs-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -834,7 +919,7 @@
                             <div class="banner-text">
                                 <span>New Arrivals</span>
                                 <h4>Shop Today’s <br>Deals & Offers</h4>
-                                <a href="shop.html">Shop Now <i class="fi-rs-arrow-right"></i></a>
+                                <a href="{{ route('shop') }}">Shop Now <i class="fi-rs-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -845,42 +930,44 @@
             <div id="new-added" class="container wow fadeIn animated">
                 <h3 class="section-title mb-20"><span>Latest</span> Items</h3>
                 <div class="carausel-6-columns-cover position-relative">
-                    <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow"
-                        id="carausel-6-columns-2-arrows"></div>
+                    <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow" id="carausel-6-columns-2-arrows">
+                    </div>
                     <div class="carausel-6-columns carausel-arrow-center" id="carausel-6-columns-2">
                         @foreach ($lproducts as $lproduct)
-                            <div class="product-cart-wrap small hover-up">
-                                <div class="product-img-action-wrap">
-                                    <div class="product-img product-img-zoom">
-                                        <a href="{{ route('product.details', ['slug' => $lproduct->slug]) }}">
-                                            <img class="default-img"
-                                                src="{{ asset('assets/imgs/products') }}/{{ $lproduct->image }}"
-                                                alt="">
-                                            {{-- <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt=""> --}}
-                                        </a>
-                                    </div>
-                                    <div class="product-action-1">
-                                        {{-- <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                                        <i class="fi-rs-eye"></i></a>
-                                    <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="wishlist.php" tabindex="0"><i class="fi-rs-heart"></i></a>
-                                    <a aria-label="Compare" class="action-btn small hover-up" href="compare.php" tabindex="0"><i class="fi-rs-shuffle"></i></a> --}}
-                                    </div>
-                                    <div class="product-badges product-badges-position product-badges-mrg">
-                                        <span class="new">New</span>
-                                    </div>
+                        <div class="product-cart-wrap small hover-up">
+                            <div class="product-img-action-wrap">
+                                <div class="product-img product-img-zoom">
+                                    <a href="{{ route('product.details', ['slug' => $lproduct->slug]) }}">
+                                        <img class="default-img"
+                                            src="{{ asset('assets/imgs/products') }}/{{ $lproduct->image }}" alt="">
+                                        {{-- <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt=""> --}}
+                                    </a>
                                 </div>
-                                <div class="product-content-wrap">
-                                    <h2><a href="product-details.html">{{ $lproduct->name }}</a></h2>
-                                    <div class="rating-result" title="90%">
-                                        <span>
-                                        </span>
-                                    </div>
-                                    <div class="product-price">
-                                        <span>{{ $lproduct->regular_price }} </span>
-                                        {{-- <span class="old-price">$245.8</span> --}}
-                                    </div>
+                                <div class="product-action-1">
+                                    {{-- <a aria-label="Quick view" class="action-btn small hover-up"
+                                        data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                                        <i class="fi-rs-eye"></i></a>
+                                    <a aria-label="Add To Wishlist" class="action-btn small hover-up"
+                                        href="wishlist.php" tabindex="0"><i class="fi-rs-heart"></i></a>
+                                    <a aria-label="Compare" class="action-btn small hover-up" href="compare.php"
+                                        tabindex="0"><i class="fi-rs-shuffle"></i></a> --}}
+                                </div>
+                                <div class="product-badges product-badges-position product-badges-mrg">
+                                    <span class="new">New</span>
                                 </div>
                             </div>
+                            <div class="product-content-wrap">
+                                <h2><a href="product-details.html">{{ $lproduct->name }}</a></h2>
+                                <div class="rating-result" title="90%">
+                                    <span>
+                                    </span>
+                                </div>
+                                <div class="product-price">
+                                    <span>{{ $lproduct->regular_price }} </span>
+                                    {{-- <span class="old-price">$245.8</span> --}}
+                                </div>
+                            </div>
+                        </div>
                         @endforeach
 
                     </div>
@@ -893,8 +980,8 @@
             <div class="container">
                 <h3 class="section-title mb-20 wow fadeIn animated"><span>Client </span> experiences</h3>
                 <div class="carausel-6-columns-cover position-relative wow fadeIn animated">
-                    <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow"
-                        id="carausel-6-columns-3-arrows"></div>
+                    <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow" id="carausel-6-columns-3-arrows">
+                    </div>
                     <div class="carausel-4-columns text-center" id="carausel-6-columns-3">
                         <div class="brand-logo">
                             <p>"I am delighted with the speed of delivery and the careful packaging of the product.
@@ -941,11 +1028,13 @@
 
     <script>
         function scrollToForm(popular) {
+            const offset = 100; 
+            const element = document.querySelector(popular);
+            const offsetPosition = element.getBoundingClientRect().top + window.scrollY - offset;
 
-            document.querySelector('#popular').scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    }
+
     </script>
 
 </div>

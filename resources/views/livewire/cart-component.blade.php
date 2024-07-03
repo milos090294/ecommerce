@@ -48,7 +48,7 @@
                                                     {{-- <p class="font-xs">Maboriosam in a tonto nesciung eget<br> distingy magndapibus.
                                             </p> --}}
                                                 </td>
-                                                <td class="price" data-title="Cijena"><span>EUR
+                                                <td class="price" data-title="Cijena"><span>BAM
                                                         {{ $item->model->regular_price }}</span></td>
                                                 <td class="text-center" data-title="Količina">
                                                     <div class="detail-qty border radius  m-auto">
@@ -90,7 +90,7 @@
                                                     </div>
                                                 </td>
                                                 <td class="text-right" data-title="Ukupno">
-                                                    <span>EUR {{ $item->subtotal }} </span>
+                                                    <span>BAM {{ $item->subtotal }} </span>
                                                 </td>
                                                 <td wire:click.prevent="destroy('{{ $item->rowId }}')"class="action"
                                                     data-title="Izbriši"><a href="#" class="text-muted"><i
@@ -425,25 +425,25 @@
                                                 <tr>
                                                     <td class="cart_total_label">Total</td>
 
-                                                    <td class="cart_total_amount"> <i class="ti-gift mr-5"></i>EUR
+                                                    <td class="cart_total_amount"> <i class="ti-gift mr-5"></i>BAM
                                                         {{ Cart::instance('cart_' . session()->getId())->subtotal() }}
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="cart_total_label">TAX</td>
 
-                                                    <td class="cart_total_amount"> <i class="ti-gift mr-5"></i>EUR
+                                                    <td class="cart_total_amount"> <i class="ti-gift mr-5"></i>BAM
                                                         {{ Cart::instance('cart_' . session()->getId())->tax() }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="cart_total_label">Delivery</td>
-                                                    <td class="cart_total_amount"> <i class="ti-gift mr-5"></i>EUR 8
+                                                    <td class="cart_total_amount"> <i class="ti-gift mr-5"></i>BAM 8
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="cart_total_label">Total</td>
                                                     <td class="cart_total_amount"><strong><span
-                                                                class="font-xl fw-900 text-brand">EUR
+                                                                class="font-xl fw-900 text-brand">BAM
                                                                 {{ Cart::instance('cart_' . session()->getId())->total() + 8 }}</span></strong>
                                                     </td>
                                                 </tr>

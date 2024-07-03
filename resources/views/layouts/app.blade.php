@@ -19,7 +19,9 @@
 
 <body>
     <header class="header-area header-style-1 header-height-2">
+        @auth
         <div class="header-top header-top-ptb-1 d-none d-lg-block">
+           
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-xl-3 col-lg-4">
@@ -37,7 +39,7 @@
                         </div>
                     </div>
                   
-                    <div class="col-xl-6 col-lg-4">
+                    {{-- <div class="col-xl-6 col-lg-4">
                         <div class="text-center">
                             <div id="news-flash" class="d-inline-block p-1">
                                 <ul >
@@ -47,10 +49,9 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="col-xl-3 col-lg-4">
                         <div class="header-info header-info-right">
-                            @auth
                             <ul>                                
                                 <li>
                                     <i class="fi-rs-user"></i>{{ Auth::user()->name }}  / 
@@ -62,23 +63,18 @@
                                 
                                 </li>
                             </ul>
-                            @else
-                            <ul>                                
-                                <li><i class="fi-rs-key"></i><a href="{{route ('login') }}">Log in</a>  / <a href="{{route ('register')}}">Register</a></li>
-                            </ul>
-                            @endauth
-                            
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        @endauth
+
         <div class="header-middle header-middle-ptb-1 d-none d-lg-block">
             <div class="container">
                 <div class="header-wrap">
                     <div class="logo logo-width-1">
-                        <a href="/"><img src="{{asset ('assets/imgs/logo/logo.png')}}" alt="logo" ></a>
+                        <a href="/"><img src="{{asset ('assets/imgs/logo/msmlogo.jpg')}}" alt="logo" ></a>
                        
                     </div>
                     <div class="header-right">
@@ -97,7 +93,7 @@
             <div class="container">
                 <div class="header-wrap header-space-between position-relative">
                     <div class="logo logo-width-1 d-block d-lg-none">
-                        <a href="/"><img src="{{asset ('assets/imgs/logo/logo.png')}}" alt="logo"></a>
+                        <a href="/"><img src="{{asset ('assets/imgs/logo/msmlogo.jpg')}}" alt="logo"></a>
                     </div>
                     <div class="header-nav d-none d-lg-flex">
                         <div class="main-categori-wrap d-none d-lg-block">
@@ -353,7 +349,7 @@
         <div class="mobile-header-wrapper-inner">
             <div class="mobile-header-top">
                 <div class="mobile-header-logo">
-                    <a href="/"><img src="{{asset ('assets/imgs/logo/logo.png')}}"  alt="logo"></a>
+                    <a href="/"><img src="{{asset ('assets/imgs/logo/msmlogo.jpg')}}"  alt="logo"></a>
                 </div>
                 <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
                     <button class="close-style search-close">
@@ -484,66 +480,36 @@
         <section class="section-padding footer-mid">
             <div class="container pt-15 pb-20">
                 <div id="contact" class="row">
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4  text-center">
                         <div class="widget-about font-md mb-md-5 mb-lg-0">
                             <div class="logo logo-width-1 wow fadeIn animated">
-                                <a href="/"><img src="{{asset ('assets/imgs/logo/logo.png')}}" alt="logo"></a>
-                                
-                            </div>
-                            <h5 class="mt-20 mb-10 fw-600 text-grey-4 wow fadeIn animated">Contact</h5>
-                            <p class="wow fadeIn animated">
-                                <strong>Adress: </strong>Banja Luka bb
-                            </p>
-                            <p class="wow fadeIn animated">
-                                <strong>Phone: </strong>065584789
-                            </p>
-                            <p class="wow fadeIn animated">
-                                <strong>Email: </strong>losmikovac@hotmail.com
-                            </p>
-                            <h5 class="mb-10 mt-30 fw-600 text-grey-4 wow fadeIn animated">Follow us!</h5>
-                            <div class="mobile-social-icon wow fadeIn animated mb-sm-5 mb-md-0">
-                                <a href="#"><img src="assets/imgs/theme/icons/icon-facebook.svg" alt=""></a>
-                                {{-- <a href="#"><img src="assets/imgs/theme/icons/icon-twitter.svg" alt=""></a> --}}
-                                <a href="#"><img src="assets/imgs/theme/icons/icon-instagram.svg" alt=""></a>
-                                {{-- <a href="#"><img src="assets/imgs/theme/icons/icon-pinterest.svg" alt=""></a> --}}
-                                <a href="#"><img src="assets/imgs/theme/icons/icon-youtube.svg" alt=""></a>
+                                <a href="/"><img src="{{asset ('assets/imgs/logo/msmlogo.jpg')}}" alt="logo"></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-3">
-                        <h5 class="widget-title wow fadeIn animated">Info</h5>
-                        <ul class="footer-list wow fadeIn animated mb-sm-5 mb-md-0">
-                            <li><a href="#">About us</li>
-                            <li><a href="#">Delivery</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                            {{-- <li><a href="#">Contact Us</a></li>                             --}}
-                        </ul>
-                    </div>
-                    {{-- <div class="col-lg-2  col-md-3">
-                        <h5 class="widget-title wow fadeIn animated">My Account</h5>
-                        <ul class="footer-list wow fadeIn animated">
-                            <li><a href="my-account.html">My Account</a></li>
-                            <li><a href="#">View Cart</a></li>
-                            <li><a href="#">My Wishlist</a></li>
-                            <li><a href="#">Track My Order</a></li>                            
-                            <li><a href="#">Order</a></li>
-                        </ul>
-                    </div> --}}
                     <div class="col-lg-4 mob-center">
-                        {{-- <h5 class="widget-title wow fadeIn animated">Install App</h5> --}}
-                        <div class="row">
-                            {{-- <div class="col-md-8 col-lg-12">
-                                <p class="wow fadeIn animated">From App Store or Google Play</p>
-                                <div class="download-app wow fadeIn animated mob-app">
-                                    <a href="#" class="hover-up mb-sm-4 mb-lg-0"><img class="active" src="assets/imgs/theme/app-store.jpg" alt=""></a>
-                                    <a href="#" class="hover-up"><img src="assets/imgs/theme/google-play.jpg" alt=""></a>
-                                </div>
-                            </div> --}}
-                            <div class="col-md-4 col-lg-12 mt-md-3 mt-lg-0">
-                                <p class="mb-20 wow fadeIn animated">Secured Payment Gateways</p>
-                                <img class="wow fadeIn animated" src="assets/imgs/theme/payment-method.png" alt="">
-                            </div>
+                        <div>
+                            <h5 class="mt-20 mb-10 fw-600 text-grey-4 wow fadeIn animated f-16">Contact</h5>
+                        <p class="wow fadeIn animated text-start">
+                            <strong>Adress: </strong>Banja Luka bb
+                        </p>
+                        <p class="wow fadeIn animated text-start">
+                            <strong>Phone: </strong>065584789
+                        </p>
+                        <p class="wow fadeIn animated text-start">
+                            <strong>Email: </strong>losmikovac@hotmail.com
+                        </div>
+                        </p>
+                    </div>
+                   
+                    <div class="col-lg-4 mob-center  text-center">
+                        <h5 class="mb-10 mt-30 fw-600 text-grey-4 wow fadeIn animated f-16">Follow us!</h5>
+                        <div class="mobile-social-icon wow fadeIn animated mb-sm-5 mb-md-0">
+                            <a href="#"><img src="assets/imgs/theme/icons/icon-facebook.svg" alt=""></a>
+                            {{-- <a href="#"><img src="assets/imgs/theme/icons/icon-twitter.svg" alt=""></a> --}}
+                            <a href="#"><img src="assets/imgs/theme/icons/icon-instagram.svg" alt=""></a>
+                            {{-- <a href="#"><img src="assets/imgs/theme/icons/icon-pinterest.svg" alt=""></a> --}}
+                            <a href="#"><img src="assets/imgs/theme/icons/icon-youtube.svg" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -554,13 +520,9 @@
                 <div class="col-12 mb-20">
                     <div class="footer-bottom"></div>
                 </div>
-                <div class="col-lg-6">
-                    <p class="float-md-left font-sm text-muted mb-0">
-                        <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-conditions.html">Terms & Conditions</a>
-                    </p>
-                </div>
-                <div class="col-lg-6">
-                    <p class="text-lg-end text-start font-sm text-muted mb-0">
+              
+                <div class="col-lg-12">
+                    <p class="text-lg-center text-center font-sm text-muted mb-0">
                         &copy; <strong class="text-brand">Michada</strong> All rights reserved
                     </p>
                 </div>

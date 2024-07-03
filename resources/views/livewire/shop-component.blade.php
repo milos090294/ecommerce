@@ -115,7 +115,7 @@
                                             </span>
                                         </div> --}}
                                         <div class="product-price">
-                                            <span>KM {{$product->regular_price}}  </span>
+                                            <span>BAM {{$product->regular_price}}  </span>
                                            {{-- /<span class="old-price">${{245.8}}</span> --}}
                                         </div>
                                         <div class="product-action-1 show ">
@@ -186,7 +186,7 @@
                                     <div id="slider-range" wire:ignore></div>
                                     <div class="price_slider_amount">
                                         <div class="label-input">
-                                            <span>Range:</span> <span class="text-info">EUR {{$min_value}}</span> <span> - </span><span class="text-info">EUR {{$max_value}}</span>
+                                            <span>Range:</span> <span class="text-info">BAM {{$min_value}}</span> <span> - </span><span class="text-info">BAM {{$max_value}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -234,7 +234,7 @@
                                 </div>
                                 <div class="content pt-10">
                                     <h5><a href="{{route ('product.details', ['slug' =>  $lproduct->slug])}}">{{$lproduct->name}}</a></h5>
-                                    <p class="price mb-0 mt-5">{{$lproduct->regular_price}}</p>
+                                    <p class="price mb-0 mt-5">{{$lproduct->regular_price}} BAM</p>
                                     <div class="product-rate">
                                         <div class="product-rating" style="width:90%"></div>
                                     </div>

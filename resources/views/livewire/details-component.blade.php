@@ -103,7 +103,7 @@
                                         </div>
                                         <div class="clearfix product-price-cover">
                                             <div class="product-price primary-color float-left">
-                                                <ins><span class="text-brand">KM {{$product->regular_price}}</span></ins>
+                                                <ins><span class="text-brand">BAM {{$product->regular_price}}</span></ins>
                                                 {{-- <ins><span class="old-price font-md ml-15">$200.00</span></ins> --}}
                                                 {{-- <span class="save-price  font-md color3 ml-15">25% Off</span> --}}
                                             </div>
@@ -569,7 +569,7 @@
                                 </div>
                                 <div class="content pt-10">
                                     <h6><a href="{{route('product.details', ['slug' => $n_product->slug])}}">{{$n_product->name}}</a></h6>
-                                    <p class="price mb-0 mt-5">${{$n_product->regular_price}}</p>
+                                    <p class="price mb-0 mt-5">${{$n_product->regular_price}} BAM</p>
                                     <div class="product-rate">
                                         <div class="product-rating" style="width:60%"></div>
                                     </div>

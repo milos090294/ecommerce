@@ -1,12 +1,12 @@
 
     <div class="header-action-icon-2">
-        <a class="mini-cart-icon" href="{{route ('shop.cart')}}">
+        <a class="mini-cart-icon" >
             <img alt="Surfside Media" src="{{asset ('assets/imgs/theme/icons/icon-cart.svg')}}">
             @if(Cart::instance('cart_'.session()->getId())->count() > 0)
             <span class="pro-count blue">{{Cart::instance('cart_'.session()->getId())->count()}}</span>
             @endif
         </a>
-        <div class="cart-dropdown-wrap cart-dropdown-hm2">
+        <div class="cart-dropdown-wrap cart-dropdown-hm2" style="z-index: 999999999999999999999999999999999999999999999999999999999999999 !important;">
             <ul>
                 @foreach (Cart::instance('cart_'.session()->getId())->content() as $item)
                     
