@@ -97,7 +97,7 @@
                                         <div class="product-action-1">
                                             {{-- <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
                                                 <i class="fi-rs-search"></i></a> --}}
-                                            <a aria-label="Dodaj u Listu Želja" class="action-btn hover-up" wire:click.prevent = "addToWishList({{$product->id}}, '{{$product->name}}', {{$product->regular_price}})" ><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Add to wishlist" class="action-btn hover-up" wire:click.prevent = "addToWishList({{$product->id}}, '{{$product->name}}', {{$product->regular_price}})" ><i class="fi-rs-heart"></i></a>
                                             {{-- <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a> --}}
                                         </div>
                                         <div class="product-badges product-badges-position product-badges-mrg">

@@ -875,10 +875,10 @@
                     </div>
                     <div class="carausel-6-columns" id="carausel-6-columns">
                         @foreach ($pcategories as $pcategory)
-                        <div class="card-1">
+                        <div class="card-1" style="height: 245px;">
                             <figure class=" img-hover-scale overflow-hidden">
                                 <a href="{{ route('product.category', ['slug' => $pcategory->slug]) }}"><img
-                                        src="{{ asset('assets/imgs/categories') }}/{{ $pcategory->image }}" alt=""></a>
+                                        src="{{ asset('assets/imgs/categories') }}/{{ $pcategory->image }}" alt="" ></a>
                             </figure>
                             <h5><a href="{{ route('product.category', ['slug' => $pcategory->slug]) }}">{{
                                     $pcategory->name }}</a>

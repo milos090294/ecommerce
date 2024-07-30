@@ -452,8 +452,7 @@
                                                     <td class="cart_total_label">Total</td>
                                                     <td class="cart_total_amount"><strong><span
                                                                 class="font-xl fw-900 text-brand">BAM&nbsp;{{
-                                                                Cart::instance('cart_' . session()->getId())->total() +
-                                                                8 }}</span></strong>
+                                                                Cart::instance('cart_' . session()->getId())->total() }}</span></strong>
                                                     </td>
                                                 </tr>
                                             </tbody>
