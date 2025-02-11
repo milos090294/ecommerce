@@ -18,7 +18,7 @@
             <div class="container">
                 <div class="breadcrumb">
                     <a href="index.html" rel="nofollow">Home</a>
-                    <span></span> Kategorija
+                    <span></span> Category
                 </div>
             </div>
         </div>
@@ -28,13 +28,13 @@
                     <div class="col-lg-9">
                         <div class="shop-product-fillter">
                             <div class="totall-product">
-                                <p> Pronašli smo <strong class="text-brand">{{$products->total()}}</strong> artikla iz kategorije {{$category_name}}!</p>
+                                <p> We found <strong class="text-brand">{{$products->total()}}</strong> articles in  {{$category_name}}!</p>
                             </div>
                             <div class="sort-by-product-area">
                                 <div class="sort-by-cover mr-10">
                                     <div class="sort-by-product-wrap">
                                         <div class="sort-by">
-                                            <span><i class="fi-rs-apps"></i>Prikaži:</span>
+                                            <span><i class="fi-rs-apps"></i>Show:</span>
                                         </div>
                                         <div class="sort-by-dropdown-wrap">
                                             <span> {{$pageSize}} <i class="fi-rs-angle-small-down"></i></span>
@@ -53,7 +53,7 @@
                                 <div class="sort-by-cover">
                                     <div class="sort-by-product-wrap">
                                         <div class="sort-by">
-                                            <span><i class="fi-rs-apps-sort"></i>Sortiraj:</span>
+                                            <span><i class="fi-rs-apps-sort"></i>Sort:</span>
                                         </div>
                                         <div class="sort-by-dropdown-wrap">
                                             <span> {{$orderBy}} <i class="fi-rs-angle-small-down"></i></span>
@@ -61,10 +61,10 @@
                                     </div>
                                     <div class="sort-by-dropdown">
                                         <ul>
-                                            <li><a class="{{$orderBy == "Svi artikli" ? 'active': ''}}" href="#" wire:click.prevent="changeOrderBy('Svi artikli')">Svi artikli</a></li>
-                                            <li><a class="{{$orderBy == "Cijena: od manje prema većoj" ? 'active': ''}}" href="#" wire:click.prevent="changeOrderBy('Cijena: od manje prema većoj')">Cijena: od manje prema većoj</a></li>
-                                            <li><a class="{{$orderBy == "Cijena: od veće prema manjoj" ? 'active': ''}}" href="#" wire:click.prevent="changeOrderBy('Cijena: od veće prema manjoj')">Cijena: od veće prema manjoj</a></li>
-                                            <li><a class="{{$orderBy == "Najnoviji artikli" ? 'active': ''}}" href="#" wire:click.prevent="changeOrderBy('Najnoviji artikli')">Najnoviji artikli </a></li>
+                                            <li><a class="{{$orderBy == "All Articles" ? 'active': ''}}" href="#" wire:click.prevent="changeOrderBy('All Articles')">All Articles</a></li>
+                                            <li><a class="{{$orderBy == "Price: low to high" ? 'active': ''}}" href="#" wire:click.prevent="changeOrderBy('Price: low to high')">Price: low to high</a></li>
+                                            <li><a class="{{$orderBy == "Price: high to low" ? 'active': ''}}" href="#" wire:click.prevent="changeOrderBy('Price: high to low')">Price: high to low</a></li>
+                                            <li><a class="{{$orderBy == "Newest Articles" ? 'active': ''}}" href="#" wire:click.prevent="changeOrderBy('Newest Articles')">Newest Articles </a></li>
                                         
                                         </ul>
                                     </div>

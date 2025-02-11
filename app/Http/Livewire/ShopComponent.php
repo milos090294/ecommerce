@@ -34,7 +34,7 @@ class ShopComponent extends Component
     public function store($product_id, $product_name, $product_price)
     {
         $options = ['size' => 'M'];
-        Cart::instance('cart_'.session()->getId())->add($product_id, $product_name, 1, $product_price, $options)->associate('\App\Models\Product');
+        Cart::instance('cart_' . session()->getId())->add($product_id, $product_name, 1, $product_price, $options)->associate('\App\Models\Product');
         session()->flash("success_message", "Item added to Cart");
         $this->emitTo('cart-icon-component', 'refreshComponent');
         return redirect()->route('shop.cart');
@@ -42,29 +42,26 @@ class ShopComponent extends Component
 
     public function changePageSize($size)
     {
-
-
         $this->pageSize = $size;
     }
 
     public function changeOrderBy($order)
     {
-
         $this->orderBy = $order;
     }
 
     public function addToWishList($product_id, $product_name, $product_price)
     {
-        Cart::instance('wishlist'.session()->getId())->add($product_id, $product_name, 1, $product_price)->associate('App\Models\Product');
+        Cart::instance('wishlist' . session()->getId())->add($product_id, $product_name, 1, $product_price)->associate('App\Models\Product');
         $this->emitTo('wish-list-icon-component', 'refreshComponent');
     }
 
     public function removeFromWishlist($product_id)
     {
-        foreach (Cart::instance('wishlist'.session()->getId())->content() as $witem) {
+        foreach (Cart::instance('wishlist' . session()->getId())->content() as $witem) {
             if ($witem->id == $product_id) {
 
-                Cart::instance('wishlist'.session()->getId())->remove($witem->rowId);
+                Cart::instance('wishlist' . session()->getId())->remove($witem->rowId);
                 $this->emitTo('wish-list-icon-component', 'refreshComponent');
                 return;
             }
@@ -129,8 +126,6 @@ class ShopComponent extends Component
 
         $lproducts = Product::orderBy('created_at', 'DESC')->get()->take(3);
         $categories = Category::orderBy('name', 'ASC')->get();
-
-        
 
         return view('livewire.shop-component', compact('products', 'categories', 'lproducts'));
     }

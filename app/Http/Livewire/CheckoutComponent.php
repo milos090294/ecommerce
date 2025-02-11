@@ -33,9 +33,9 @@ class CheckoutComponent extends Component
             'phone'   => 'required',
             'zipcode' => 'required',
             'payment_option' => 'required',
-           
+
         ]);
-    
+
         $customer = Customer::create([
             'name'   => $this->fname,
             'lastname'   => $this->lname,
@@ -45,16 +45,16 @@ class CheckoutComponent extends Component
             'phone'   => $this->phone,
             'postcode' => $this->zipcode,
         ]);
-        
-        $this->total = Cart::instance('cart_'.session()->getId())->total() + 8;
 
-      
+        $this->total = Cart::instance('cart_' . session()->getId())->total() + 8;
+
+
         $order = Order::create([
             'customer_id'   => $customer->id,
             'total'   => $this->total,
         ]);
-    
-        foreach (Cart::instance('cart_'.session()->getId())->content() as $item) {
+
+        foreach (Cart::instance('cart_' . session()->getId())->content() as $item) {
 
             DB::table('order_product')->insert([
                 'order_id'   => $order->id,
@@ -64,13 +64,12 @@ class CheckoutComponent extends Component
                 'size'      => $item->options->size,
             ]);
         }
-    
-        Cart::instance('cart_'.session()->getId())->destroy();
+
+        Cart::instance('cart_' . session()->getId())->destroy();
         $this->emitTo('cart-icon-component', 'refreshComponent');
         session()->flash('success_message', 'Poslali ste narudžbu');
-       
     }
-    
+
 
     public function render()
     {

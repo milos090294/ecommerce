@@ -5,10 +5,11 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 
 class HeaderSearchComponent extends Component
-{   
+{
     public $q;
 
-    public function mount(){
+    public function mount()
+    {
         $this->fill(request()->only('q'));
     }
 

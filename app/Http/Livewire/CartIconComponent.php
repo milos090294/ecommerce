@@ -10,13 +10,14 @@ class CartIconComponent extends Component
 
     protected $listeners = ['refreshComponent' => '$refresh'];
 
-    
-    public function destroy($id) {
+    public function destroy($id)
+    {
 
-        Cart::instance('cart_'.session()->getId())->remove($id);
+        Cart::instance('cart_' . session()->getId())->remove($id);
+
         $this->emitTo('cart-icon-component', 'refreshComponent');
+
         session()->flash('success_message', 'Item has been removed');
-       
     }
 
     public function render()

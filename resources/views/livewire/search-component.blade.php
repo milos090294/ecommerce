@@ -26,7 +26,7 @@
                     <div class="col-lg-9">
                         <div class="shop-product-fillter">
                             <div class="totall-product">
-                                <p> We found <strong class="text-brand">{{ $products->total() }}</strong> aarticles for
+                                <p> We found <strong class="text-brand">{{ $products->total() }}</strong> articles for
                                     you!</p>
                             </div>
                             <div class="sort-by-product-area">
@@ -68,19 +68,18 @@
                                                     href="#"
                                                     wire:click.prevent="changeOrderBy('All Articles')">All Articles</a>
                                             </li>
-                                            <li><a class="{{ $orderBy == 'Price: from less to more' ? 'active' : '' }}"
+                                            <li><a class="{{ $orderBy == 'Price: low to high' ? 'active' : '' }}"
                                                     href="#"
-                                                    wire:click.prevent="changeOrderBy('Price: from less to more')">Price:
-                                                    from less to more</a></li>
-                                            <li><a class="{{ $orderBy == 'Price: from higher to lower' ? 'active' : '' }}"
+                                                    wire:click.prevent="changeOrderBy('Price: low to high')">Price:
+                                                    low to high</a></li>
+                                            <li><a class="{{ $orderBy == 'Price: high to low' ? 'active' : '' }}"
                                                     href="#"
-                                                    wire:click.prevent="changeOrderBy('Price: from higher to lower')">Price:
-                                                    from higher to lower</a></li>
-                                            <li><a class="{{ $orderBy == 'Latest items' ? 'active' : '' }}"
+                                                    wire:click.prevent="changeOrderBy('Price: high to low')">Price:
+                                                    high to low</a></li>
+                                            <li><a class="{{ $orderBy == 'Newest Articles' ? 'active' : '' }}"
                                                     href="#"
-                                                    wire:click.prevent="changeOrderBy('Latest items')">Latest items </a>
+                                                    wire:click.prevent="changeOrderBy('Newest Articles')">Newest Articles </a>
                                             </li>
-
                                         </ul>
                                     </div>
                                 </div>
