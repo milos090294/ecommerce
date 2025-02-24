@@ -142,40 +142,6 @@
                             </div>
 
                             <div class="md-3 mt-3">
-                                <label for="image1" class="form-label">Image1</label>
-                               <input wire:model="image1" type="file" name="image1" class="form-control">
-                               @if ($image1)
-                                   <img src="{{$image1->temporaryUrl()}}" width="120" srcset="">
-                               @endif
-                                @error('image1')
-                                <p class="text-danger">{{$message}}</p>
-                            @enderror
-                            </div>
-
-                            <div class="md-3 mt-3">
-                                <label for="image2" class="form-label">Image2</label>
-                               <input wire:model="image2" type="file" name="image2" class="form-control">
-                               @if ($image2)
-                                   <img src="{{$image2->temporaryUrl()}}" width="120" srcset="">
-                               @endif
-                                @error('image2')
-                                <p class="text-danger">{{$message}}</p>
-                            @enderror
-                            </div>
-
-                            <div class="md-3 mt-3">
-                                <label for="image3" class="form-label">Image3</label>
-                               <input wire:model="image3" type="file" name="image3" class="form-control">
-                               @if ($image3)
-                                   <img src="{{$image3->temporaryUrl()}}" width="120" srcset="">
-                               @endif
-                                @error('image3')
-                                <p class="text-danger">{{$message}}</p>
-                            @enderror
-                            </div>
-
-
-                            <div class="md-3 mt-3">
                                 <label for="category_id" class="form-label">Category</label>
                                 <select wire:model="category_id" name="category_id" class="form-control">
                                     <option value="">Select Category</option>

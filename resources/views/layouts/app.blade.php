@@ -251,12 +251,7 @@
                         </div>
                     </div>
                     <div class="col-lg-5">
-                        <!-- Subscribe Form -->
-                        <form class="form-subcriber d-flex wow fadeIn animated">
-                            <input type="email" class="form-control bg-white font-small" placeholder="Write Email">
-                            <button class="btn bg-dark text-white" type="submit">Subscribe</button>
-                        </form>
-                        <!-- End Subscribe Form -->
+                        @livewire('subscribe-component')
                     </div>
                 </div>
             </div>

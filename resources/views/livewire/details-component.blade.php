@@ -17,27 +17,9 @@
                         <div class="product-details">
                             <div class="row mb-50">
                                 <div class="col-md-6 col-sm-12 col-xs-12">
-                                    <div class="fotorama" data-nav="thumbs" style="width: 95%;">
                                         @isset($product->image)
                                         <img src="{{ asset('assets/imgs/products')}}/{{$product->image}}" alt="product image">
                                         @endisset
-                                
-                                        @isset($product->image1)
-                                        <img src="{{ asset('assets/imgs/products')}}/{{$product->image1}}" alt="product image">
-                                        @endisset
-                                
-                                        @isset($product->image2)
-                                        <img src="{{ asset('assets/imgs/products')}}/{{$product->image2}}" alt="product image">
-                                        @endisset
-                                
-                                        @isset($product->image3)
-                                        <img src="{{ asset('assets/imgs/products')}}/{{$product->image3}}" alt="product image">
-                                        @endisset
-                                
-                                        @isset($product->image4)
-                                        <img src="{{ asset('assets/imgs/products')}}/{{$product->image4}}" alt="product image">
-                                        @endisset
-                                    </div>
                                 </div>
                                 <div class="col-md-6 col-sm-12 col-xs-12">
                                     <div class="detail-info">
