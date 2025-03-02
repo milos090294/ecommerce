@@ -50,9 +50,9 @@
                                                 magndapibus.
                                             </p> --}}
                                         </td>
-                                        <td class="price" data-title="Cijena"><span>BAM&nbsp;{{
+                                        <td class="price" data-title="Cijena"><span>{{ env('CURRENCY') }}&nbsp;{{
                                                 $item->model->regular_price }}</span></td>
-                                        <td class="text-center" data-title="Količina">
+                                        <td class="text-center" data-title="Quantity">
                                             <div class="detail-qty border radius  m-auto">
                                                 <a wire:click.prevent="decreaseQuantity('{{ $item->rowId }}')" href="#"
                                                     class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
@@ -90,7 +90,7 @@
                                             </div>
                                         </td>
                                         <td class="text-right" data-title="Ukupno">
-                                            <span>BAM&nbsp;{{ $item->subtotal }} </span>
+                                            <span>{{ env('CURRENCY') }}&nbsp;{{ $item->subtotal }} </span>
                                         </td>
                                         <td wire:click.prevent="destroy('{{ $item->rowId }}')" class="action"
                                             data-title="Izbriši"><a href="#" class="text-muted"><i
@@ -431,7 +431,7 @@
                                                     <td class="cart_total_label">Total</td>
 
                                                     <td class="cart_total_amount"> <i
-                                                            class="ti-gift mr-5"></i>BAM&nbsp;{{ Cart::instance('cart_'
+                                                            class="ti-gift mr-5"></i>{{ env('CURRENCY') }}&nbsp;{{ Cart::instance('cart_'
                                                         . session()->getId())->subtotal() }}
                                                     </td>
                                                 </tr>
@@ -439,19 +439,19 @@
                                                     <td class="cart_total_label">TAX</td>
 
                                                     <td class="cart_total_amount"> <i
-                                                            class="ti-gift mr-5"></i>BAM&nbsp;{{ Cart::instance('cart_'
+                                                            class="ti-gift mr-5"></i>{{ env('CURRENCY') }}&nbsp;{{ Cart::instance('cart_'
                                                         . session()->getId())->tax() }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="cart_total_label">Delivery</td>
                                                     <td class="cart_total_amount"> <i
-                                                            class="ti-gift mr-5"></i>BAM&nbsp;8
+                                                            class="ti-gift mr-5"></i>{{ env('CURRENCY') }}&nbsp;8
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="cart_total_label">Total</td>
                                                     <td class="cart_total_amount"><strong><span
-                                                                class="font-xl fw-900 text-brand">BAM&nbsp;{{
+                                                                class="font-xl fw-900 text-brand">{{ env('CURRENCY') }}&nbsp;{{
                                                                 Cart::instance('cart_' . session()->getId())->total() }}</span></strong>
                                                     </td>
                                                 </tr>

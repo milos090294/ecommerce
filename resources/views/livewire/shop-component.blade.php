@@ -37,7 +37,7 @@
                     <div class="col-lg-9">
                         <div class="shop-product-fillter">
                             <div class="totall-product">
-                                <p> We found  <strong class="text-brand">{{$products->total()}}</strong> article for you!</p>
+                                <p> We found  <strong class="text-brand">{{$products->total()}}</strong> products for you!</p>
                             </div>
                             <div class="sort-by-product-area">
                                 <div class="sort-by-cover mr-10">
@@ -115,7 +115,7 @@
                                             </span>
                                         </div> --}}
                                         <div class="product-price">
-                                            <span>BAM&nbsp;{{$product->regular_price}}  </span>
+                                            <span>{{ env('CURRENCY') }}&nbsp;{{$product->regular_price}}  </span>
                                            {{-- /<span class="old-price">${{245.8}}</span> --}}
                                         </div>
                                         <div class="product-action-1 show ">
@@ -128,7 +128,7 @@
 
                                             @endif --}}
 
-                                            <a aria-label="Dodaj U Korpu " class="action-btn hover-up" href="" wire:click.prevent = "store({{$product->id}}, '{{$product->name}}', {{$product->regular_price}})"><i class="fi-rs-shopping-bag-add"></i></a>
+                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="" wire:click.prevent = "store({{$product->id}}, '{{$product->name}}', {{$product->regular_price}})"><i class="fi-rs-shopping-bag-add"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -186,7 +186,7 @@
                                     <div id="slider-range" wire:ignore></div>
                                     <div class="price_slider_amount">
                                         <div class="label-input">
-                                            <span>Range:</span> <span class="text-info">BAM&nbsp;{{$min_value}}</span> <span> - </span><span class="text-info">BAM&nbsp;{{$max_value}}</span>
+                                            <span>Range:</span> <span class="text-info">{{ env('CURRENCY') }}&nbsp;{{$min_value}}</span> <span> - </span><span class="text-info">{{ env('CURRENCY') }}&nbsp;{{$max_value}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -234,7 +234,7 @@
                                 </div>
                                 <div class="content pt-10">
                                     <h5><a href="{{route ('product.details', ['slug' =>  $lproduct->slug])}}">{{$lproduct->name}}</a></h5>
-                                    <p class="price mb-0 mt-5">BAM&nbsp;{{$lproduct->regular_price}}</p>
+                                    <p class="price mb-0 mt-5">{{ env('CURRENCY') }}&nbsp;{{$lproduct->regular_price}}</p>
                                     <div class="product-rate">
                                         <div class="product-rating" style="width:90%"></div>
                                     </div>

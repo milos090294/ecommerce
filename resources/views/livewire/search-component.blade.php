@@ -126,7 +126,7 @@
                                                 </span>
                                             </div>
                                             <div class="product-price">
-                                                <span>BAM&nbsp;{{ $product->regular_price }}</span>
+                                                <span>{{ env('CURRENCY') }}&nbsp;{{ $product->regular_price }}</span>
                                                 {{-- /<span class="old-price">${{245.8}}</span> --}}
                                             </div>
                                             <div class="product-action-1 show">
@@ -230,7 +230,7 @@
                                         <h5><a
                                                 href="{{ route('product.details', ['slug' => $lproduct->slug]) }}">{{ $lproduct->name }}</a>
                                         </h5>
-                                        <p class="price mb-0 mt-5">BAM&nbsp;{{ $lproduct->regular_price }}</p>
+                                        <p class="price mb-0 mt-5">{{ env('CURRENCY') }}&nbsp;{{ $lproduct->regular_price }}</p>
                                         <div class="product-rate">
                                             <div class="product-rating" style="width:90%"></div>
                                         </div>

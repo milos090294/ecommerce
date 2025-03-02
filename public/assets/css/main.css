@@ -2981,6 +2981,7 @@ table .product-thumbnail img {
   background-color: #f3fbf5;
   z-index: -1;
   max-height: 1200px;
+  display: none;
 }
 
 .mobile-promotion {
@@ -7869,7 +7870,7 @@ span.fi-rs-apps {
   height: 40px;
   background-color: #916dab;
   color: #ffffff;
-  right: 30px;
+  right: 40px;
   bottom: 30px;
   border-radius: 5px;
   text-align: center;

@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="breadcrumb">
                     <a href="{{route ('home.index')}}" rel="nofollow">Home</a>
-                    <span></span> More details about the article
+                    <span></span> More details about the product
                    
                 </div>
             </div>
@@ -38,7 +38,7 @@
                                         </div>
                                         <div class="clearfix product-price-cover">
                                             <div class="product-price primary-color float-left">
-                                                <ins><span class="text-brand">BAM&nbsp;{{$product->regular_price}}</span></ins>
+                                                <ins><span class="text-brand">{{ env('CURRENCY') }}&nbsp;{{$product->regular_price}}</span></ins>
                                                 {{-- <ins><span class="old-price font-md ml-15">$200.00</span></ins> --}}
                                                 {{-- <span class="save-price  font-md color3 ml-15">25% Off</span> --}}
                                             </div>
@@ -82,11 +82,11 @@
                                         <div class="bt-1 border-color-1 mt-30 mb-30"></div>
                                         <div class="detail-extralink">
                                            <div class="number">
-                                            <label for="quantity">Količina</label>
+                                            <label for="quantity">Quantity</label>
                                             <input type="number"class="mb-3" name="" id="quantity" wire:model.defer="quantity">
                                            </div>
                                             <div class="product-extra-link2">
-                                                <button wire:click.prevent="store({{$product->id}}, '{{$product->name}}', {{$product->regular_price}})" type="button" class="button button-add-to-cart">Dodaj u korpu</button>
+                                                <button wire:click.prevent="store({{$product->id}}, '{{$product->name}}', {{$product->regular_price}})" type="button" class="button button-add-to-cart">Add to cart</button>
                                                 {{-- <a aria-label="Dodaj u Listu Želja" class="action-btn hover-up" wire:click.prevent = "addToWishList({{$product->id}}, '{{$product->name}}', {{$product->regular_price}})" ><i class="fi-rs-heart"></i></a> --}}
                                                 
                                             </div>
@@ -504,7 +504,7 @@
                                 </div>
                                 <div class="content pt-10">
                                     <h6><a href="{{route('product.details', ['slug' => $n_product->slug])}}">{{$n_product->name}}</a></h6>
-                                    <p class="price mb-0 mt-5">BAM&nbsp;{{$n_product->regular_price}}</p>
+                                    <p class="price mb-0 mt-5">{{ env('CURRENCY') }}&nbsp;{{$n_product->regular_price}}</p>
                                     <div class="product-rate">
                                         <div class="product-rating" style="width:60%"></div>
                                     </div>

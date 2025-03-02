@@ -21,6 +21,7 @@ class CheckoutComponent extends Component
     public $zipcode;
     public $payment_option;
     public $total;
+    public $coupon_code;
 
     public function order()
     {
@@ -70,6 +71,35 @@ class CheckoutComponent extends Component
         session()->flash('success_message', 'Poslali ste narudžbu');
     }
 
+    public function applyCoupon()
+    {
+        $subscriber = DB::table('subscribers')
+            ->where('coupon_code', $this->coupon_code)
+            ->where('coupon_status', 'unused')
+            ->first();
+    
+        if ($subscriber) {
+            $cartInstance = Cart::instance('cart_' . session()->getId());
+            $cartItems = $cartInstance->content(); 
+            $totalDiscount = 0; 
+    
+            foreach ($cartItems as $item) {
+                $originalPrice = $item->price; 
+                $discountedPrice = $originalPrice * 0.90;
+                $totalDiscount += $originalPrice - $discountedPrice;
+    
+                Cart::update($item->rowId, ['price' => $discountedPrice]);
+            }
+    
+            DB::table('subscribers')
+                ->where('id', $subscriber->id)
+                ->update(['coupon_status' => 'used']);
+    
+            session()->flash('coupon_msg', 'Coupon code applied successfully. You saved ' . number_format($totalDiscount, 2) . '!');
+        } else {
+            session()->flash('coupon_msg', 'Coupon code is invalid or has already been used.');
+        }
+    }
 
     public function render()
     {
